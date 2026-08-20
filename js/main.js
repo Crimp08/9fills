@@ -20,6 +20,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Vollbild-Button für die Beispielvideos
+  document.querySelectorAll(".video-fullscreen-btn").forEach(function (button) {
+    var card = button.closest(".placeholder-card--video");
+    var video = card ? card.querySelector("video") : null;
+    if (!video) return;
+
+    button.addEventListener("click", function () {
+      video.muted = false;
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+      } else if (video.webkitEnterFullscreen) {
+        video.webkitEnterFullscreen();
+      }
+    });
+
+    document.addEventListener("fullscreenchange", function () {
+      if (document.fullscreenElement !== video) {
+        video.muted = true;
+      }
+    });
+    document.addEventListener("webkitfullscreenchange", function () {
+      if (document.webkitFullscreenElement !== video) {
+        video.muted = true;
+      }
+    });
+  });
+
   // Sendet das Formular per AJAX an Web3Forms (funktioniert unabhängig vom Hosting).
   var form = document.getElementById("contact-form");
   var success = document.getElementById("contact-success");

@@ -731,6 +731,25 @@ h3,
   color: var(--color-white);
   margin: 0;
 }
+.video-fullscreen-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.video-fullscreen-btn:hover {
+  border-color: var(--color-brand);
+  background: rgba(0, 0, 0, 0.6);
+}
 
 /* ---------- Pricing ---------- */
 .pricing-grid {
