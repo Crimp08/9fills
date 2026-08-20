@@ -706,8 +706,11 @@ h3,
   margin: 0 auto;
 }
 .placeholder-grid--videos {
-  max-width: 560px;
-  grid-template-columns: repeat(2, 1fr);
+  max-width: 340px;
+  grid-template-columns: 1fr;
+}
+.placeholder-grid--videos .placeholder-card--vertical {
+  max-width: 340px;
 }
 .placeholder-card--video {
   position: relative;
