@@ -65,34 +65,95 @@ document.addEventListener("DOMContentLoaded", function () {
     setPosition(Number(range.value));
   });
 
-  // Vollbild-Button für die Beispielvideos
-  document.querySelectorAll(".video-fullscreen-btn").forEach(function (button) {
-    var card = button.closest(".placeholder-card--video");
-    var video = card ? card.querySelector("video") : null;
-    if (!video) return;
+  // Vollbild-Button für die Beispielvideos (eigene Lightbox statt Fullscreen-API,
+  // die in vielen Browsern/eingebetteten Ansichten für <video> zuverlässig blockiert wird)
+  var lightbox = document.getElementById("video-lightbox");
+  var lightboxVideo = document.getElementById("video-lightbox-video");
+  var lightboxClose = document.getElementById("video-lightbox-close");
 
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.hidden = true;
+    lightboxVideo.pause();
+    lightboxVideo.removeAttribute("src");
+    lightboxVideo.load();
+  }
+
+  if (lightbox && lightboxVideo) {
+    document.querySelectorAll(".video-fullscreen-btn").forEach(function (button) {
+      var card = button.closest(".placeholder-card--video");
+      var sourceVideo = card ? card.querySelector("video") : null;
+      if (!sourceVideo) return;
+
+      button.addEventListener("click", function () {
+        lightboxVideo.src = sourceVideo.currentSrc || sourceVideo.src;
+        lightbox.hidden = false;
+        lightboxVideo.play();
+      });
+    });
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener("click", closeLightbox);
+    }
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !lightbox.hidden) closeLightbox();
+    });
+  }
+
+  // Einzelpreise-Konfigurator (Fotoveredelung/KI-Werbevideo einzeln zusammenstellen)
+  var PREIS_FOTO = 19;
+  var PREIS_VIDEO = 49;
+  var einzelConfig = { foto: 0, video: 0 };
+  var qtyFotoEl = document.getElementById("qty-foto");
+  var qtyVideoEl = document.getElementById("qty-video");
+  var einzelTotalEl = document.getElementById("einzelpreise-total");
+  var einzelAnfrageLink = document.getElementById("einzelpreise-anfragen");
+
+  function formatEuro(amount) {
+    return amount.toLocaleString("de-DE") + " €";
+  }
+
+  function updateEinzelpreise() {
+    if (qtyFotoEl) qtyFotoEl.textContent = String(einzelConfig.foto);
+    if (qtyVideoEl) qtyVideoEl.textContent = String(einzelConfig.video);
+
+    var total = einzelConfig.foto * PREIS_FOTO + einzelConfig.video * PREIS_VIDEO;
+    if (einzelTotalEl) einzelTotalEl.textContent = formatEuro(total);
+
+    if (einzelAnfrageLink) {
+      var teile = [];
+      if (einzelConfig.foto > 0) teile.push(einzelConfig.foto + "x Fotoveredelung");
+      if (einzelConfig.video > 0) teile.push(einzelConfig.video + "x KI-Werbevideo");
+      var beschreibung = teile.length ? teile.join(" + ") : "noch keine Auswahl getroffen";
+      einzelAnfrageLink.dataset.message =
+        "Individuelles Einzelpreis-Paket: " + beschreibung + " (Gesamt ca. " + formatEuro(total) + ").";
+    }
+  }
+
+  document.querySelectorAll("[data-qty-action]").forEach(function (button) {
     button.addEventListener("click", function () {
-      video.muted = false;
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      } else if (video.webkitRequestFullscreen) {
-        video.webkitRequestFullscreen();
-      } else if (video.webkitEnterFullscreen) {
-        video.webkitEnterFullscreen();
-      }
-    });
-
-    document.addEventListener("fullscreenchange", function () {
-      if (document.fullscreenElement !== video) {
-        video.muted = true;
-      }
-    });
-    document.addEventListener("webkitfullscreenchange", function () {
-      if (document.webkitFullscreenElement !== video) {
-        video.muted = true;
-      }
+      var target = button.getAttribute("data-qty-target");
+      var delta = button.getAttribute("data-qty-action") === "increase" ? 1 : -1;
+      einzelConfig[target] = Math.max(0, einzelConfig[target] + delta);
+      updateEinzelpreise();
     });
   });
+
+  updateEinzelpreise();
+
+  if (einzelAnfrageLink) {
+    einzelAnfrageLink.addEventListener("click", function () {
+      var paketSelect = document.getElementById("paket");
+      var messageField = document.getElementById("message");
+      if (paketSelect) paketSelect.value = "einzelpreise";
+      if (messageField && einzelAnfrageLink.dataset.message) {
+        messageField.value = einzelAnfrageLink.dataset.message;
+      }
+    });
+  }
 
   // Sendet das Formular per AJAX an Web3Forms (funktioniert unabhängig vom Hosting).
   var form = document.getElementById("contact-form");

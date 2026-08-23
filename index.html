@@ -366,11 +366,11 @@
           <div class="pricing-price">
             <span class="amount">279 € / Monat</span>
           </div>
-          <p class="pricing-videos">Halber Bestand in Fotos + 2 Videos</p>
+          <p class="pricing-videos">12 Fotos + 3 Videos</p>
           <p class="pricing-videos-hint">Ideal für den Einstieg</p>
           <ul class="pricing-features">
-            <li>Professionelle KI-Fotos für die Hälfte des Fahrzeugbestands</li>
-            <li>2 KI-Werbevideos für Ihre teuersten/wichtigsten Fahrzeuge</li>
+            <li>Professionelle KI-Fotos für 12 Fahrzeuge</li>
+            <li>3 KI-Werbevideos für Ihre teuersten/wichtigsten Fahrzeuge</li>
             <li>Formate für Social Media, Website &amp; Fahrzeugportale</li>
             <li>1 Feedback-Runde pro Auftrag</li>
           </ul>
@@ -385,11 +385,11 @@
           <div class="pricing-price">
             <span class="amount">549 € / Monat</span>
           </div>
-          <p class="pricing-videos">Kompletter Bestand in Fotos + 5 Videos</p>
+          <p class="pricing-videos">24 Fotos + 8 Videos</p>
           <p class="pricing-videos-hint">Unser meistgebuchtes Paket</p>
           <ul class="pricing-features">
-            <li>Professionelle KI-Fotos für den kompletten Fahrzeugbestand</li>
-            <li>5 KI-Werbevideos für Ihre Topfahrzeuge</li>
+            <li>Professionelle KI-Fotos für 24 Fahrzeuge</li>
+            <li>8 KI-Werbevideos für Ihre Topfahrzeuge</li>
             <li>Formate für Social Media, Website &amp; Fahrzeugportale</li>
             <li>2 Feedback-Runden pro Auftrag</li>
             <li>Laufende Betreuung</li>
@@ -404,7 +404,7 @@
           <div class="pricing-price">
             <span class="amount">ab 999 € / Monat</span>
           </div>
-          <p class="pricing-videos">Priorisiert + 10+ Videos</p>
+          <p class="pricing-videos">Gesamter Bestand + 10+ Videos</p>
           <p class="pricing-videos-hint">Individuell erweiterbar</p>
           <ul class="pricing-features">
             <li>Kompletter Bestand priorisiert bearbeitet — schnellere Lieferzeit</li>
@@ -421,21 +421,42 @@
         <div class="pricing-card">
           <p class="mono-label">9F_E1</p>
           <h3>Einzelpreise</h3>
-          <p class="pricing-desc">Lieber flexibel statt im Abo? Buchen Sie einzeln nach Bedarf.</p>
+          <p class="pricing-desc">Lieber flexibel statt im Abo? Stellen Sie sich Ihr individuelles Paket zusammen.</p>
 
-          <div style="margin-top:24px;">
-            <p class="pricing-videos-hint" style="margin-top:0;">Fotoveredelung</p>
-            <div class="pricing-price" style="margin-top:4px;">
-              <span class="amount">19 €</span>
-              <span class="note">/ Fahrzeug</span>
+          <div class="qty-row" style="margin-top:24px;">
+            <div>
+              <p class="pricing-videos-hint" style="margin-top:0;">Fotoveredelung</p>
+              <div class="pricing-price" style="margin-top:4px;">
+                <span class="amount">19 €</span>
+                <span class="note">/ Fahrzeug</span>
+              </div>
+            </div>
+            <div class="qty-stepper">
+              <button type="button" class="qty-btn" data-qty-action="decrease" data-qty-target="foto" aria-label="Weniger Fotoveredelung">−</button>
+              <span class="qty-value" id="qty-foto">0</span>
+              <button type="button" class="qty-btn" data-qty-action="increase" data-qty-target="foto" aria-label="Mehr Fotoveredelung">+</button>
             </div>
           </div>
 
-          <div style="margin-top:20px;">
-            <p class="pricing-videos-hint" style="margin-top:0;">KI-Werbevideo</p>
+          <div class="qty-row" style="margin-top:20px;">
+            <div>
+              <p class="pricing-videos-hint" style="margin-top:0;">KI-Werbevideo</p>
+              <div class="pricing-price" style="margin-top:4px;">
+                <span class="amount">49 €</span>
+                <span class="note">/ Fahrzeug</span>
+              </div>
+            </div>
+            <div class="qty-stepper">
+              <button type="button" class="qty-btn" data-qty-action="decrease" data-qty-target="video" aria-label="Weniger KI-Werbevideo">−</button>
+              <span class="qty-value" id="qty-video">0</span>
+              <button type="button" class="qty-btn" data-qty-action="increase" data-qty-target="video" aria-label="Mehr KI-Werbevideo">+</button>
+            </div>
+          </div>
+
+          <div style="margin-top:24px; padding-top:24px; border-top:1px solid var(--color-border);">
+            <p class="pricing-videos-hint" style="margin-top:0;">Ihr individueller Preis</p>
             <div class="pricing-price" style="margin-top:4px;">
-              <span class="amount">49 €</span>
-              <span class="note">/ Fahrzeug</span>
+              <span class="amount" id="einzelpreise-total">0 €</span>
             </div>
           </div>
 
@@ -444,7 +465,7 @@
             <li>Mindestabnahme 5 Fahrzeuge pro Bestellung</li>
           </ul>
 
-          <a href="#kontakt" class="btn btn-block">Einzeln anfragen</a>
+          <a href="#kontakt" class="btn btn-block" id="einzelpreise-anfragen">Einzeln anfragen</a>
         </div>
       </div>
 
@@ -642,6 +663,11 @@
     </div>
   </div>
 </footer>
+
+<div class="video-lightbox" id="video-lightbox" hidden>
+  <button type="button" class="video-lightbox-close" id="video-lightbox-close" aria-label="Video schließen">×</button>
+  <video id="video-lightbox-video" controls playsinline></video>
+</div>
 
 <script src="js/main.js"></script>
 </body>
