@@ -505,13 +505,17 @@ h3,
 .wayfinder-card:hover {
   border-color: var(--color-brand);
 }
-.wayfinder-card h2 {
+.wayfinder-card h2,
+.wayfinder-card h3 {
   margin-top: 24px;
 }
 .wayfinder-card p {
   margin-top: 16px;
   max-width: 380px;
   color: var(--color-ink-soft);
+}
+.wayfinder-card .mono-label {
+  color: var(--color-ink-faint);
 }
 .wayfinder-cta {
   margin-top: 40px;
@@ -749,6 +753,79 @@ h3,
 .video-fullscreen-btn:hover {
   border-color: var(--color-brand);
   background: rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- Vorher/Nachher-Vergleichsslider ---------- */
+.compare-slider-media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-ink);
+  cursor: ew-resize;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.compare-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+.compare-slider-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--color-white);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.compare-slider-handle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.compare-slider-handle-arrows {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--color-ink);
+}
+.compare-slider-tag {
+  position: absolute;
+  top: 12px;
+  color: var(--color-white);
+  z-index: 1;
+  pointer-events: none;
+}
+.compare-slider-tag--before {
+  left: 12px;
+}
+.compare-slider-tag--after {
+  right: 12px;
+}
+.compare-slider-range {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  accent-color: var(--color-brand);
 }
 
 /* ---------- Pricing ---------- */
@@ -1019,6 +1096,17 @@ h3,
   margin-top: 8px;
   color: var(--color-ink-soft);
   font-size: 0.9rem;
+}
+
+.cta-form-block {
+  border: 2px solid var(--color-brand);
+  background: var(--color-white);
+  padding: 40px 32px;
+}
+@media (min-width: 700px) {
+  .cta-form-block {
+    padding: 48px;
+  }
 }
 
 .contact-layout {
