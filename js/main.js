@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function setPosition(pos) {
       pos = Math.max(0, Math.min(100, pos));
-      afterImg.style.clipPath = "inset(0 " + (100 - pos) + "% 0 0)";
+      afterImg.style.clipPath = "inset(0 0 0 " + pos + "%)";
       handle.style.left = pos + "%";
       range.value = String(pos);
     }
