@@ -1,4 +1,4 @@
-// 9fills – shared site scripts (mobile nav + contact form)
+// 9fills – shared site scripts (mobile nav, compare slider, calculator, contact form)
 
 document.addEventListener("DOMContentLoaded", function () {
   var toggle = document.getElementById("nav-toggle");
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Vorher/Nachher-Vergleichsslider (Fotoveredelung)
+  // Vorher/Nachher-Vergleichsslider
   document.querySelectorAll(".compare-slider").forEach(function (slider) {
     var media = slider.querySelector(".compare-slider-media");
     var afterImg = slider.querySelector(".compare-img--after");
@@ -103,56 +103,65 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Einzelpreise-Konfigurator (Fotoveredelung/KI-Werbevideo einzeln zusammenstellen)
-  var PREIS_FOTO = 19;
-  var PREIS_VIDEO = 49;
-  var einzelConfig = { foto: 0, video: 0 };
-  var qtyFotoEl = document.getElementById("qty-foto");
-  var qtyVideoEl = document.getElementById("qty-video");
-  var einzelTotalEl = document.getElementById("einzelpreise-total");
-  var einzelAnfrageLink = document.getElementById("einzelpreise-anfragen");
+  // Standzeit-Rechner: berechnet gebundenes Kapital und Standzeitkosten live
+  // und speist die Live-Zeile im Preis-Block "Einmal: dein Bestand" mit.
+  var calcBestand = document.getElementById("calc-bestand");
+  var calcStandzeit = document.getElementById("calc-standzeit");
+  var calcWert = document.getElementById("calc-wert");
+  var bestandSummeCount = document.getElementById("bestand-summe-count");
+  var bestandSummeTotal = document.getElementById("bestand-summe-total");
 
-  function formatEuro(amount) {
-    return amount.toLocaleString("de-DE") + " €";
+  function formatZahl(zahl) {
+    return Math.round(zahl).toLocaleString("de-DE");
   }
 
-  function updateEinzelpreise() {
-    if (qtyFotoEl) qtyFotoEl.textContent = String(einzelConfig.foto);
-    if (qtyVideoEl) qtyVideoEl.textContent = String(einzelConfig.video);
+  function bestandsaufnahmePreis(bestand) {
+    var stueckpreis = bestand < 20 ? 19 : 15;
+    return bestand * stueckpreis;
+  }
 
-    var total = einzelConfig.foto * PREIS_FOTO + einzelConfig.video * PREIS_VIDEO;
-    if (einzelTotalEl) einzelTotalEl.textContent = formatEuro(total);
+  function updateBestandsaufnahme(bestand) {
+    if (bestandSummeCount) bestandSummeCount.textContent = formatZahl(bestand);
+    if (bestandSummeTotal) bestandSummeTotal.textContent = formatZahl(bestandsaufnahmePreis(bestand)) + " €";
+  }
 
-    if (einzelAnfrageLink) {
-      var teile = [];
-      if (einzelConfig.foto > 0) teile.push(einzelConfig.foto + "x Fotoveredelung");
-      if (einzelConfig.video > 0) teile.push(einzelConfig.video + "x KI-Werbevideo");
-      var beschreibung = teile.length ? teile.join(" + ") : "noch keine Auswahl getroffen";
-      einzelAnfrageLink.dataset.message =
-        "Individuelles Einzelpreis-Paket: " + beschreibung + " (Gesamt ca. " + formatEuro(total) + ").";
+  if (calcBestand && calcStandzeit && calcWert) {
+    var calcBestandValue = document.getElementById("calc-bestand-value");
+    var calcStandzeitValue = document.getElementById("calc-standzeit-value");
+    var calcWertValue = document.getElementById("calc-wert-value");
+    var calcKapitalOut = document.getElementById("calc-kapital");
+    var calcTageskostenOut = document.getElementById("calc-tageskosten");
+    var calcMonatstageOut = document.getElementById("calc-monatstage");
+
+    function updateRechner() {
+      var bestand = Number(calcBestand.value);
+      var standzeit = Number(calcStandzeit.value);
+      var wert = Number(calcWert.value);
+
+      if (calcBestandValue) calcBestandValue.textContent = formatZahl(bestand);
+      if (calcStandzeitValue) calcStandzeitValue.textContent = formatZahl(standzeit);
+      if (calcWertValue) calcWertValue.textContent = formatZahl(wert) + " €";
+
+      var kostenProFahrzeugProTag = (wert * 0.15) / 365;
+      var kostenProTagGesamt = kostenProFahrzeugProTag * bestand;
+      var gebundenesKapital = wert * bestand;
+      var tageFuerEinenMonat = 169 / kostenProTagGesamt;
+
+      if (calcKapitalOut) calcKapitalOut.textContent = formatZahl(gebundenesKapital) + " €";
+      if (calcTageskostenOut) calcTageskostenOut.textContent = formatZahl(kostenProTagGesamt) + " €";
+      if (calcMonatstageOut) calcMonatstageOut.textContent = formatZahl(tageFuerEinenMonat) + " Tagen";
+
+      updateBestandsaufnahme(bestand);
     }
-  }
 
-  document.querySelectorAll("[data-qty-action]").forEach(function (button) {
-    button.addEventListener("click", function () {
-      var target = button.getAttribute("data-qty-target");
-      var delta = button.getAttribute("data-qty-action") === "increase" ? 1 : -1;
-      einzelConfig[target] = Math.max(0, einzelConfig[target] + delta);
-      updateEinzelpreise();
+    [calcBestand, calcStandzeit, calcWert].forEach(function (input) {
+      input.addEventListener("input", updateRechner);
     });
-  });
 
-  updateEinzelpreise();
-
-  if (einzelAnfrageLink) {
-    einzelAnfrageLink.addEventListener("click", function () {
-      var paketSelect = document.getElementById("paket");
-      var messageField = document.getElementById("message");
-      if (paketSelect) paketSelect.value = "einzelpreise";
-      if (messageField && einzelAnfrageLink.dataset.message) {
-        messageField.value = einzelAnfrageLink.dataset.message;
-      }
-    });
+    updateRechner();
+  } else {
+    // Rechner nicht auf der Seite: Preis-Block trotzdem mit Startwert 25 anzeigen.
+    updateBestandsaufnahme(25);
   }
 
   // Sendet das Formular per AJAX an Web3Forms (funktioniert unabhängig vom Hosting).
@@ -195,46 +204,6 @@ document.addEventListener("DOMContentLoaded", function () {
           if (button) {
             button.disabled = false;
             button.textContent = "Nachricht senden";
-          }
-          alert("Senden hat leider nicht geklappt. Bitte versuch es erneut oder schreib uns direkt an kontakt@9fills.de.");
-        });
-    });
-  }
-
-  // Formular für das kostenlose Beispielfoto (inkl. Foto-Upload per FormData an Web3Forms).
-  var photoForm = document.getElementById("beispielfoto-form");
-  var photoSuccess = document.getElementById("beispielfoto-success");
-
-  if (photoForm && photoSuccess) {
-    photoForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      var button = photoForm.querySelector("button[type='submit']");
-      if (button) {
-        button.disabled = true;
-        button.textContent = "WIRD GESENDET…";
-      }
-
-      fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Accept": "application/json"
-        },
-        body: new FormData(photoForm)
-      })
-        .then(function (response) {
-          return response.json().then(function (result) {
-            if (!response.ok || !result.success) {
-              throw new Error(result.message || "Unbekannter Fehler");
-            }
-            photoForm.hidden = true;
-            photoSuccess.hidden = false;
-            photoSuccess.focus();
-          });
-        })
-        .catch(function () {
-          if (button) {
-            button.disabled = false;
-            button.textContent = "Kostenloses Beispiel anfordern";
           }
           alert("Senden hat leider nicht geklappt. Bitte versuch es erneut oder schreib uns direkt an kontakt@9fills.de.");
         });

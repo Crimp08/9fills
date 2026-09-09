@@ -1405,3 +1405,377 @@ h3,
   line-height: 1.7;
   font-size: 0.9rem;
 }
+
+/* ---------- Hero: sekundärer Link (Entwurf: Psychologie) ---------- */
+.hero-secondary-link {
+  margin-top: 16px;
+}
+.hero-secondary-link a {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-faint);
+  border-bottom: 1px solid var(--color-border);
+}
+.hero-secondary-link a:hover {
+  color: var(--color-brand);
+  border-color: var(--color-brand);
+}
+
+/* ---------- Mini-Vergleich (schneller erster Eindruck unter dem Hero) ---------- */
+.mini-compare {
+  padding: 96px 0;
+}
+.mini-compare-line {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-ink-faint);
+}
+.mini-compare-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 700px) {
+  .mini-compare-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.mini-compare-slot {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+}
+.mini-compare-slot:has(.is-missing) {
+  border: 1px dashed var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.mini-compare-slot:has(.is-missing)::before {
+  content: "Platzhalter — Bild folgt";
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+.mini-compare-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.mini-compare-img.is-missing {
+  display: none;
+}
+
+/* ---------- Vergleichsslider im Smartphone-Mockup ---------- */
+.phone-mockup {
+  max-width: 320px;
+  margin: 48px auto 0;
+  border: 8px solid var(--color-ink);
+  border-radius: 32px;
+  background: var(--color-white);
+  padding: 12px 12px 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+.phone-mockup-notch {
+  width: 80px;
+  height: 6px;
+  border-radius: 4px;
+  background: var(--color-ink);
+  margin: 0 auto 12px;
+}
+.phone-mockup-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px 10px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 12px;
+}
+.phone-mockup-bar span {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+.phone-mockup-dots {
+  display: flex;
+  gap: 4px;
+}
+.phone-mockup-dots span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-ink-faint);
+}
+.phone-mockup .compare-slider-media {
+  aspect-ratio: 4 / 5;
+}
+.phone-mockup .compare-slider-tag {
+  max-width: calc(100% - 24px);
+  line-height: 1.35;
+  white-space: normal;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 5px 8px;
+  font-size: 0.68rem;
+}
+.phone-mockup .compare-slider-tag--before {
+  top: 12px;
+}
+.phone-mockup .compare-slider-tag--after {
+  top: auto;
+  right: 12px;
+  bottom: 12px;
+}
+.phone-mockup-feed-line {
+  height: 8px;
+  margin-top: 14px;
+  background: var(--color-bg-alt);
+  border-radius: 4px;
+}
+.phone-mockup-feed-line--short {
+  width: 55%;
+}
+
+/* ---------- Hintergründe (Studio-/Kulissen-Auswahl) ---------- */
+.background-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (min-width: 700px) {
+  .background-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.background-card {
+  position: relative;
+}
+.background-card:has(.is-missing) .background-img {
+  display: none;
+}
+.background-card:has(.is-missing)::before {
+  content: "Platzhalter";
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--color-border);
+  background: var(--color-bg-alt);
+  color: var(--color-ink-faint);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.background-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  background: var(--color-bg-alt);
+}
+.background-caption {
+  margin-top: 10px;
+  color: var(--color-ink-faint);
+}
+.background-custom-note {
+  margin-top: 32px;
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+}
+
+/* ---------- Standzeit-Rechner ---------- */
+.calc-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+@media (min-width: 800px) {
+  .calc-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+}
+.calc-field {
+  margin-top: 28px;
+}
+.calc-field:first-child {
+  margin-top: 0;
+}
+.calc-field-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.calc-field-head label {
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+}
+.calc-field-value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+.calc-field input[type="range"] {
+  width: 100%;
+  margin-top: 10px;
+  accent-color: var(--color-brand);
+}
+.calc-output {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  padding: 32px;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+}
+.calc-output-line {
+  font-size: 1.05rem;
+  color: var(--color-ink-soft);
+}
+.calc-output-value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-ink);
+  font-size: 1.3rem;
+  display: inline-block;
+}
+.calc-footnote {
+  margin-top: 32px;
+  max-width: 620px;
+  font-size: 0.8rem;
+  color: var(--color-ink-faint);
+}
+
+/* ---------- Die Delle (Vertrauensanker) ---------- */
+.delle-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 700px) {
+  .delle-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.delle-slot {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+}
+.delle-slot:has(.is-missing) {
+  border-style: dashed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.delle-slot:has(.is-missing)::before {
+  content: "Platzhalter — Bild folgt";
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+.delle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.delle-img.is-missing {
+  display: none;
+}
+.delle-caption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 1;
+  color: var(--color-white);
+  background: rgba(0, 0, 0, 0.55);
+  padding: 4px 8px;
+}
+.delle-slot:has(.is-missing) .delle-caption {
+  color: var(--color-ink-faint);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+.delle-marker {
+  position: absolute;
+  top: 46%;
+  left: 58%;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--color-brand);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+.delle-marker::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 36px;
+  height: 2px;
+  background: var(--color-brand);
+  transform-origin: left center;
+  transform: rotate(-18deg);
+}
+
+/* ---------- Preise: Bestandsaufnahme + laufende Hinweise ---------- */
+.price-block {
+  margin-top: 48px;
+  padding: 32px;
+  max-width: 640px;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+}
+.price-live-line {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.95rem;
+  color: var(--color-ink-soft);
+}
+.price-live-line strong {
+  color: var(--color-ink);
+}
+.price-calm-line {
+  margin-top: 32px;
+  max-width: 620px;
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+}
+.price-single-block {
+  margin-top: 24px;
+}
+.price-single-block .note {
+  font-size: 0.85rem;
+  color: var(--color-ink-faint);
+}
+.price-terms-line {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--color-ink-faint);
+}

@@ -32,7 +32,7 @@
 
 <link rel="icon" type="image/svg+xml" href="assets/9fills-favicon.svg">
 <!-- TODO: PNG-Fallback fürs Favicon ergänzen (nicht alle Clients unterstützen SVG-Favicons) -->
-<link rel="stylesheet" href="css/style.css?v=7">
+<link rel="stylesheet" href="css/style.css?v=8">
 
 <!-- Strukturierte Daten für Suchmaschinen (schema.org) -->
 <script type="application/ld+json">
@@ -91,21 +91,19 @@
   <!-- 1. Hero -->
   <section class="hero">
     <div class="container">
-      <p class="mono-label eyebrow">9F_001 / KI AUTO-MARKETING FÜR AUTOHÄUSER</p>
-      <h1>Professionelle Fotos für Ihren gesamten Bestand. Wirkungsvolle KI-Werbevideos für Ihre Topfahrzeuge.</h1>
+      <p class="mono-label eyebrow">9F_001 / FÜR GEBRAUCHTWAGENHÄNDLER</p>
+      <h1>Deine Autos sind gut. Deine Fotos nicht.</h1>
       <p class="lede">
-        Beides aus einer Hand: 9fills veredelt Ihre Fahrzeugfotos mit
-        künstlicher Intelligenz — Studio-Optik statt Hof im Hintergrund —
-        und produziert zusätzlich KI-Werbevideos für die Fahrzeuge, die
-        die meiste Aufmerksamkeit verdienen. Ohne Fotostudio, ohne
-        Kamera-Team vor Ort.
+        Wir tauschen den Hintergrund deiner Inseratsfotos gegen saubere
+        Studio- und Außenaufnahmen. Am Fahrzeug selbst ändern wir nichts.
       </p>
       <div class="hero-actions">
-        <a href="#beispielfoto" class="btn btn-primary">Kostenloses Beispielfoto anfordern</a>
-        <a href="#ablauf" class="btn">So läuft's ab</a>
+        <a href="https://wa.me/4917680061752" target="_blank" rel="noopener" class="btn btn-primary">Schick mir ein Foto – du bekommst es kostenlos zurück</a>
       </div>
+      <p class="hero-secondary-link">
+        <a href="#preise">Was das kostet</a>
+      </p>
 
-      <!-- Ehrliche USPs statt erfundener Projekt-/Kundenzahlen. -->
       <div class="stat-grid">
         <div class="stat-badge">
           <p class="value">Neu &amp; Gebraucht</p>
@@ -117,11 +115,26 @@
         </div>
         <div class="stat-badge">
           <p class="value">Fair</p>
-          <p class="mono-label label">TRANSPARENTE PAKETE</p>
+          <p class="mono-label label">TRANSPARENTE PREISE</p>
         </div>
         <div class="stat-badge">
           <p class="value">Persönlich</p>
           <p class="mono-label label">DIREKTER DRAHT ZUM TEAM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mini-Vergleich (schneller erster Eindruck) -->
+  <section class="mini-compare" aria-label="Bildvergleich">
+    <div class="container">
+      <p class="mini-compare-line">Entscheide selbst, was besser aussieht.</p>
+      <div class="mini-compare-grid">
+        <div class="mini-compare-slot">
+          <img class="mini-compare-img" src="assets/vergleich-mini-hof.png" alt="Fahrzeug auf dem Hof fotografiert, unbearbeitet" loading="lazy" onerror="this.classList.add('is-missing')">
+        </div>
+        <div class="mini-compare-slot">
+          <img class="mini-compare-img" src="assets/vergleich-mini-bearbeitet.png" alt="Dasselbe Fahrzeug mit bearbeitetem Hintergrund" loading="lazy" onerror="this.classList.add('is-missing')">
         </div>
       </div>
     </div>
@@ -150,67 +163,55 @@
     </div>
   </section>
 
-  <!-- 3. Lösung -->
+  <!-- 3. Vergleich -->
   <section class="section" id="loesung" aria-labelledby="loesung-heading">
     <div class="container">
-      <p class="mono-label eyebrow">9F_003 / DIE LÖSUNG</p>
-      <h2 id="loesung-heading" style="margin-top:24px; max-width:640px;">Zwei Leistungen, ein Anbieter: KI-Fotoveredelung und KI-Werbevideos.</h2>
-      <p class="lede" style="margin-top:16px; max-width:620px;">
-        Beide Leistungen sind eigenständig buchbar und lassen sich in
-        jedem Paket kombinieren — je nachdem, was Ihr Bestand gerade
-        braucht.
+      <p class="mono-label eyebrow">9F_003 / DER VERGLEICH</p>
+      <h2 id="loesung-heading" style="margin-top:24px; max-width:640px;">Der Käufer entscheidet beim Scrollen. Nicht im Inserat.</h2>
+
+      <div class="phone-mockup">
+        <div class="phone-mockup-notch" aria-hidden="true"></div>
+        <div class="phone-mockup-bar">
+          <span>Inserat</span>
+          <div class="phone-mockup-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+        <div class="compare-slider">
+          <div class="compare-slider-media">
+            <img class="compare-img compare-img--before" src="assets/images/fotoveredelung-vorher.jpg" alt="Vorher: Fahrzeug auf dem Gebrauchtwagenhof, Himmel und andere Autos im Hintergrund" loading="lazy">
+            <img class="compare-img compare-img--after" src="assets/images/fotoveredelung-nachher.jpg" alt="Nachher: gleiches Fahrzeug, gleicher Zustand, freigestellt vor Studio-Hintergrund" loading="lazy">
+            <div class="compare-slider-handle" aria-hidden="true">
+              <span class="compare-slider-handle-arrows">◂ ▸</span>
+            </div>
+            <p class="compare-slider-tag compare-slider-tag--before mono-label">So steht dein Fahrzeug heute im Inserat</p>
+            <p class="compare-slider-tag compare-slider-tag--after mono-label">So könnte es morgen stehen</p>
+          </div>
+          <input type="range" class="compare-slider-range" min="0" max="100" value="50" aria-label="Regler bewegen, um zwischen dem Inserat heute und morgen zu wechseln">
+        </div>
+        <div class="phone-mockup-feed-line" aria-hidden="true"></div>
+        <div class="phone-mockup-feed-line phone-mockup-feed-line--short" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Werbevideos -->
+  <section class="section--alt" id="werbevideos" aria-labelledby="werbevideos-heading">
+    <div class="container section">
+      <p class="mono-label eyebrow">9F_004 / VOM FOTO ZUM WERBEVIDEO</p>
+      <h2 id="werbevideos-heading" style="margin-top:24px; max-width:640px;">Aus Fotos wird ein Werbevideo.</h2>
+      <p class="lede" style="margin-top:16px; max-width:560px;">
+        Für dein stärkstes Fahrzeug reicht ein kurzer Handyclip, um daraus
+        ein fertiges Werbevideo zu machen.
       </p>
 
-      <div class="wayfinder-grid" style="margin-top:48px;">
-        <div class="wayfinder-card">
-          <div>
-            <p class="mono-label">01 / KI-FOTOVEREDELUNG</p>
-            <h3>KI-Fotoveredelung</h3>
-            <p>
-              Ihr Bestand bekommt einheitliche, hochwertige Fotos mit
-              Studio-Hintergrund statt Hof- oder Schrottplatz-Optik — für
-              jedes Fahrzeug, das Sie führen.
-            </p>
-          </div>
-          <div class="compare-slider" style="margin-top:32px;">
-            <div class="compare-slider-media">
-              <img class="compare-img compare-img--before" src="assets/images/fotoveredelung-vorher.jpg" alt="Vorher: Fahrzeug auf dem Gebrauchtwagenhof, Himmel und andere Autos im Hintergrund" loading="lazy">
-              <img class="compare-img compare-img--after" src="assets/images/fotoveredelung-nachher.jpg" alt="Nachher: gleiches Fahrzeug, gleicher Zustand, freigestellt vor Studio-Hintergrund" loading="lazy">
-              <div class="compare-slider-handle" aria-hidden="true">
-                <span class="compare-slider-handle-arrows">◂ ▸</span>
-              </div>
-              <p class="compare-slider-tag compare-slider-tag--before mono-label">Vorher</p>
-              <p class="compare-slider-tag compare-slider-tag--after mono-label">Nachher</p>
-            </div>
-            <input type="range" class="compare-slider-range" min="0" max="100" value="50" aria-label="Vorher/Nachher-Vergleich: Regler bewegen, um den Bildanteil zu ändern">
-            <p style="margin-top:16px; font-size:0.85rem; color:var(--color-ink-faint);">
-              Wir verändern nur den Hintergrund – Zustand, Kratzer und
-              Details Ihres Fahrzeugs bleiben unangetastet und ehrlich
-              sichtbar.
-            </p>
-          </div>
-        </div>
-
-        <div class="wayfinder-card">
-          <div>
-            <p class="mono-label">02 / VOM FOTO ZUM WERBEVIDEO</p>
-            <h3>Vom Foto zum Werbevideo</h3>
-            <p>
-              Sehen Sie, wie aus einfachen Fotos ein professionelles
-              Werbevideo wird.
-            </p>
-          </div>
-          <div class="placeholder-grid placeholder-grid--videos" style="margin-top:32px; margin-left:0;">
-            <div class="placeholder-card placeholder-card--vertical placeholder-card--video">
-              <video src="assets/videos/pitch-video.mp4" autoplay muted loop playsinline></video>
-              <button type="button" class="video-fullscreen-btn" aria-label="Video im Vollbild ansehen">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M1 5V1H5M11 1H15V5M15 11V15H11M5 15H1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-              <p class="video-caption mono-label">Vorher/Nachher</p>
-            </div>
-          </div>
+      <div class="placeholder-grid placeholder-grid--videos" style="margin-top:32px;">
+        <div class="placeholder-card placeholder-card--vertical placeholder-card--video">
+          <video src="assets/videos/pitch-video.mp4" autoplay muted loop playsinline></video>
+          <button type="button" class="video-fullscreen-btn" aria-label="Video im Vollbild ansehen">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M1 5V1H5M11 1H15V5M15 11V15H11M5 15H1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <p class="video-caption mono-label">Vorher/Nachher</p>
         </div>
       </div>
 
@@ -241,11 +242,137 @@
     </div>
   </section>
 
-  <!-- 4. Ablauf -->
-  <section class="section--alt" id="ablauf" aria-labelledby="ablauf-heading">
+  <!-- 5. Hintergründe -->
+  <section class="section--alt" id="hintergruende" aria-labelledby="hintergruende-heading">
     <div class="container section">
-      <p class="mono-label eyebrow">9F_004 / ABLAUF</p>
-      <h2 id="ablauf-heading" style="margin-top:24px; max-width:640px;">Vier Schritte vom Fahrzeug im Bestand zu Fotos und Werbevideos.</h2>
+      <p class="mono-label eyebrow">9F_005 / HINTERGRÜNDE</p>
+      <h2 id="hintergruende-heading" style="margin-top:24px; max-width:640px;">Dein Auto. Viele Möglichkeiten.</h2>
+      <p class="lede" style="margin-top:16px; max-width:560px;">
+        Du entscheidest, welcher Hintergrund zu deinem Bestand und deinen
+        Inseraten passt.
+      </p>
+
+      <div class="background-grid">
+        <div class="background-card">
+          <img class="background-img" src="assets/hintergrund-studio-weiss.png" alt="Fahrzeug vor weißem Studio-Hintergrund" loading="lazy" onerror="this.classList.add('is-missing')">
+          <p class="mono-label background-caption">Studio Weiß</p>
+        </div>
+        <div class="background-card">
+          <img class="background-img" src="assets/hintergrund-studio-grau.png" alt="Fahrzeug vor hellgrauem Studio-Hintergrund" loading="lazy" onerror="this.classList.add('is-missing')">
+          <p class="mono-label background-caption">Studio Grau</p>
+        </div>
+        <div class="background-card">
+          <img class="background-img" src="assets/hintergrund-showroom.png" alt="Fahrzeug in einer Showroom-Umgebung mit Glas und Beton" loading="lazy" onerror="this.classList.add('is-missing')">
+          <p class="mono-label background-caption">Showroom</p>
+        </div>
+        <div class="background-card">
+          <img class="background-img" src="assets/hintergrund-studio-schwarz.png" alt="Fahrzeug vor schwarzem Studio-Hintergrund" loading="lazy" onerror="this.classList.add('is-missing')">
+          <p class="mono-label background-caption">Studio Schwarz</p>
+        </div>
+        <div class="background-card">
+          <img class="background-img" src="assets/hintergrund-farbverlauf.png" alt="Fahrzeug vor blaugrauem Verlaufshintergrund" loading="lazy" onerror="this.classList.add('is-missing')">
+          <p class="mono-label background-caption">Farbverlauf</p>
+        </div>
+        <div class="background-card">
+          <img class="background-img" src="assets/hintergrund-praesentation.png" alt="Fahrzeug auf Drehteller im weißen Studio" loading="lazy" onerror="this.classList.add('is-missing')">
+          <p class="mono-label background-caption">Präsentation</p>
+        </div>
+      </div>
+
+      <p class="note background-custom-note">
+        Du hast einen eigenen Wunsch für den Hintergrund? Auch das machen
+        wir möglich.
+      </p>
+    </div>
+  </section>
+
+  <!-- 6. Standzeit-Rechner -->
+  <section class="section" id="rechner" aria-labelledby="rechner-heading">
+    <div class="container section">
+      <p class="mono-label eyebrow">9F_006 / STANDZEIT-RECHNER</p>
+      <h2 id="rechner-heading" style="margin-top:24px; max-width:640px;">Rechne selbst, was ein Tag Standzeit kostet.</h2>
+
+      <div class="calc-grid">
+        <div class="calc-sliders">
+          <div class="calc-field">
+            <div class="calc-field-head">
+              <label for="calc-bestand">Fahrzeuge im Bestand</label>
+              <span class="calc-field-value" id="calc-bestand-value">25</span>
+            </div>
+            <input type="range" id="calc-bestand" min="5" max="120" step="1" value="25">
+          </div>
+          <div class="calc-field">
+            <div class="calc-field-head">
+              <label for="calc-standzeit">Ø Standzeit in Tagen</label>
+              <span class="calc-field-value" id="calc-standzeit-value">60</span>
+            </div>
+            <input type="range" id="calc-standzeit" min="10" max="180" step="1" value="60">
+          </div>
+          <div class="calc-field">
+            <div class="calc-field-head">
+              <label for="calc-wert">Ø Fahrzeugwert in €</label>
+              <span class="calc-field-value" id="calc-wert-value">3.000 €</span>
+            </div>
+            <input type="range" id="calc-wert" min="500" max="15000" step="250" value="3000">
+          </div>
+        </div>
+
+        <div class="calc-output">
+          <p class="calc-output-line">Auf deinem Hof stehen rund
+            <span class="calc-output-value" id="calc-kapital">0 €</span>
+            gebundenes Kapital.
+          </p>
+          <p class="calc-output-line">Jeder Tag Standzeit kostet dich rund
+            <span class="calc-output-value" id="calc-tageskosten">0 €</span>.
+          </p>
+          <p class="calc-output-line">169 € entsprechen etwa
+            <span class="calc-output-value" id="calc-monatstage">0 Tagen</span>
+            Standzeit.
+          </p>
+        </div>
+      </div>
+
+      <p class="note calc-footnote">
+        Konservativ gerechnet mit 15 % Haltekosten im Jahr – Kapitalbindung,
+        Wertverlust, Platz, Versicherung. Deine echten Zahlen kennst nur du.
+      </p>
+    </div>
+  </section>
+
+  <!-- 7. Die Delle -->
+  <section class="section--alt" id="delle" aria-labelledby="delle-heading">
+    <div class="container section">
+      <p class="mono-label eyebrow">9F_007 / VERTRAUEN</p>
+      <h2 id="delle-heading" style="margin-top:24px; max-width:640px;">Wir retuschieren nichts am Auto. Auch nicht die Delle.</h2>
+      <p class="lede" style="margin-top:16px; max-width:620px;">
+        Sieh dir die Beifahrertür an. Die Delle ist im bearbeiteten Bild
+        noch da – genau wie am echten Fahrzeug. Wir tauschen ausschließlich
+        Hintergrund und Licht. Kratzer, Dellen, Felgenschäden und
+        Nachlackierungen bleiben sichtbar. So steht kein Käufer bei dir auf
+        dem Hof und ist enttäuscht.
+      </p>
+
+      <div class="delle-grid">
+        <div class="delle-slot">
+          <img class="delle-img" src="assets/delle-vorher.jpg" alt="Vorher: Fahrzeug mit sichtbarer Delle an der Beifahrertür, unbearbeitet" loading="lazy" onerror="this.classList.add('is-missing')">
+          <!-- Marker zeigt grob auf die Delle — Position bei echten Fotos ggf. anpassen -->
+          <span class="delle-marker" aria-hidden="true"></span>
+          <p class="mono-label delle-caption">Vorher — assets/delle-vorher.jpg</p>
+        </div>
+        <div class="delle-slot">
+          <img class="delle-img" src="assets/delle-nachher.jpg" alt="Nachher: gleiches Fahrzeug, Studio-Hintergrund, Delle weiterhin sichtbar" loading="lazy" onerror="this.classList.add('is-missing')">
+          <span class="delle-marker" aria-hidden="true"></span>
+          <p class="mono-label delle-caption">Nachher — assets/delle-nachher.jpg</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Ablauf -->
+  <section class="section" id="ablauf" aria-labelledby="ablauf-heading">
+    <div class="container section">
+      <p class="mono-label eyebrow">9F_008 / ABLAUF</p>
+      <h2 id="ablauf-heading" style="margin-top:24px; max-width:640px;">So kommen deine Autos zu neuen Fotos.</h2>
 
       <div class="process-list">
         <div class="process-step">
@@ -254,8 +381,8 @@
             <span class="process-step-line" aria-hidden="true"></span>
           </div>
           <div class="process-step-body">
-            <h3>Kontaktaufnahme</h3>
-            <p>Sie schreiben uns kurz, worum es geht — über das Kontaktformular, per E-Mail oder WhatsApp.</p>
+            <h3>Fotos schicken</h3>
+            <p>Du schickst mir Fotos deiner Fahrzeuge. Handyqualität reicht.</p>
           </div>
         </div>
         <div class="process-step">
@@ -264,246 +391,163 @@
             <span class="process-step-line" aria-hidden="true"></span>
           </div>
           <div class="process-step-body">
-            <h3>Fotos &amp; Handyclips</h3>
-            <p>Sie schicken uns Fotos für die Fotoveredelung und, für Ihre Topfahrzeuge, kurze Handyclips für die Werbevideos — wie viele, richtet sich nach Ihrem gebuchten Paket.</p>
+            <h3>Bilder zurückbekommen</h3>
+            <p>Du bekommst die fertigen Bilder zurück, in der Regel innerhalb von 48 Stunden.</p>
           </div>
         </div>
         <div class="process-step">
           <div class="process-step-marker">
             <span class="process-step-number">03</span>
-            <span class="process-step-line" aria-hidden="true"></span>
           </div>
           <div class="process-step-body">
-            <h3>KI-Produktion</h3>
-            <p>Wir veredeln Ihre Fotos mit Studio-Optik und produzieren zusätzlich KI-Werbevideos für die Fahrzeuge aus Ihrem Paket.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="process-step-marker">
-            <span class="process-step-number">04</span>
-          </div>
-          <div class="process-step-body">
-            <h3>Lieferung</h3>
-            <p>Sie erhalten Ihre fertigen Fotos und Videos zur Nutzung auf Social Media, der eigenen Website oder Fahrzeugportalen.</p>
+            <h3>Ins Inserat laden</h3>
+            <p>Du lädst sie ins Inserat. Fertig.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. Kostenloses Beispielfoto (CTA) -->
+  <!-- 9. Kostenloses Beispiel -->
   <section class="section--alt" id="beispielfoto" aria-labelledby="beispielfoto-heading">
     <div class="container section">
-      <p class="mono-label eyebrow">9F_005 / KOSTENLOSES BEISPIEL</p>
+      <p class="mono-label eyebrow">9F_009 / KOSTENLOSES BEISPIEL</p>
       <div class="cta-form-block" style="margin-top:24px;">
-        <h2 id="beispielfoto-heading" style="max-width:520px;">Sehen Sie selbst, was aus Ihrem Foto wird – kostenlos</h2>
-        <p class="lede" style="margin-top:16px; font-size:1rem;">
-          Ein Handyfoto vom Hof — mit anderen Autos, Zaun oder Gerümpel im
-          Hintergrund — verkauft ein Fahrzeug langsamer, als es müsste.
-          Schicken Sie uns 1 Foto eines Fahrzeugs aus Ihrem Bestand, und
-          wir zeigen Ihnen kostenlos und unverbindlich ein bearbeitetes
-          Beispiel mit Studio-Hintergrund. Kein Risiko, keine
-          Verpflichtung.
+        <h2 id="beispielfoto-heading" style="max-width:520px;">Ein Fahrzeug, kostenlos.</h2>
+        <p class="lede" style="margin-top:16px; font-size:1rem; max-width:520px;">
+          Schick mir ein Foto von einem Auto, das gerade auf deinem Hof
+          steht. Kein Termin, keine Anmeldung, keine Daten. Du bekommst das
+          fertige Bild zurück und kannst es behalten – auch wenn du dich
+          gegen eine Zusammenarbeit entscheidest.
         </p>
 
-        <form id="beispielfoto-form" novalidate enctype="multipart/form-data" style="margin-top:32px; max-width:480px;">
-          <input type="hidden" name="access_key" value="d79c8712-cd1a-4322-ae8e-49f9805f9264">
-          <input type="hidden" name="subject" value="Kostenloses Beispielfoto – Anfrage über 9fills.de">
-          <input type="checkbox" name="botcheck" class="hidden" style="display:none;" tabindex="-1" autocomplete="off">
-          <div class="form-field">
-            <label for="beispiel-name">Name</label>
-            <input id="beispiel-name" name="name" type="text" required autocomplete="name">
-          </div>
-          <div class="form-field">
-            <label for="beispiel-email">E-Mail</label>
-            <input id="beispiel-email" name="email" type="email" required autocomplete="email">
-          </div>
-          <div class="form-field">
-            <label for="beispiel-telefon">Telefon (optional)</label>
-            <input id="beispiel-telefon" name="telefon" type="tel" autocomplete="tel">
-          </div>
-          <div class="form-field">
-            <label for="beispiel-foto">Foto Ihres Fahrzeugs</label>
-            <input id="beispiel-foto" name="attachment" type="file" accept="image/*" required>
-          </div>
-          <div class="form-field">
-            <label for="beispiel-nachricht">Nachricht (optional)</label>
-            <textarea id="beispiel-nachricht" name="message" rows="4"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Kostenloses Beispiel anfordern</button>
-          <p class="note" style="margin-top:16px; font-size:0.85rem; color:var(--color-ink-faint);">
-            Wir melden uns innerhalb von 3 Werktagen mit Ihrem
-            bearbeiteten Beispielfoto.
-          </p>
-        </form>
-
-        <div id="beispielfoto-success" class="form-success" role="status" tabindex="-1" hidden style="margin-top:32px; max-width:480px;">
-          <p class="mono-label">9F_200 / GESENDET</p>
-          <p class="title">Danke, Ihr Foto ist bei uns!</p>
-          <p class="note">Wir melden uns innerhalb von 3 Werktagen mit Ihrem bearbeiteten Beispielfoto.</p>
+        <div class="hero-actions" style="margin-top:32px;">
+          <a href="https://wa.me/4917680061752" target="_blank" rel="noopener" class="btn btn-primary">Foto per WhatsApp schicken</a>
         </div>
+        <p class="note" style="margin-top:16px; font-size:0.85rem; color:var(--color-ink-faint);">
+          Oder per Mail an <a href="mailto:kontakt@9fills.de">kontakt@9fills.de</a>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- 6. Preise -->
+  <!-- 10. Preise -->
   <section class="section" id="preise" aria-labelledby="preise-heading">
     <div class="container">
-      <p class="mono-label eyebrow">9F_006 / PREISE</p>
-      <h2 id="preise-heading" style="margin-top:24px; max-width:640px;">Flexibel einzeln buchen oder im Paket sparen — Sie entscheiden, was zu Ihrem Bestand passt.</h2>
-      <p class="lede" style="margin-top:16px; max-width:620px;">
-        Die Pakete kombinieren KI-Fotoveredelung für Ihren gesamten
-        Bestand mit KI-Werbevideos für Ihre Topfahrzeuge — transparent
-        und ohne versteckte Kosten. Wer flexibel bleiben möchte, bucht
-        stattdessen einzeln nach Bedarf.
-      </p>
+      <p class="mono-label eyebrow">9F_010 / PREISE</p>
+      <h2 id="preise-heading" style="margin-top:24px; max-width:640px;">Was das kostet.</h2>
 
-      <div class="pricing-grid">
+      <div class="price-block price-block--onetime">
+        <p class="mono-label">9F_P0</p>
+        <h3>Einmal: dein Bestand.</h3>
+        <p class="pricing-desc" style="max-width:520px;">
+          Jedes Fahrzeug, das heute auf deinem Hof steht, bekommt einmal
+          saubere Bilder. Das ist die größte Arbeit und passiert nur ein
+          einziges Mal.
+        </p>
+        <div class="pricing-price" style="margin-top:24px;">
+          <span class="amount">19 € pro Fahrzeug</span>
+        </div>
+        <p class="pricing-videos-hint">ab 20 Fahrzeugen 15 €</p>
+        <p class="price-live-line">Bei <strong id="bestand-summe-count">25</strong> Fahrzeugen: <strong id="bestand-summe-total">375 €</strong> einmalig.</p>
+      </div>
+
+      <div style="margin-top:64px;">
+        <p class="mono-label" style="color:var(--color-ink-faint);">DANACH: NUR NOCH DIE NEUZUGÄNGE</p>
+        <h3 style="margin-top:16px; max-width:560px;">Danach: nur noch die Neuzugänge.</h3>
+        <p class="pricing-desc" style="margin-top:12px; max-width:560px;">
+          Verkaufte Autos brauchen keine Bilder mehr. Deswegen zahlst du ab
+          dem zweiten Monat nur noch für das, was neu auf den Hof kommt.
+        </p>
+      </div>
+
+      <div class="pricing-grid" style="margin-top:32px;">
         <div class="pricing-card">
           <p class="mono-label">9F_P1</p>
-          <h3>Start</h3>
-          <p class="pricing-desc">Für kleinere Gebrauchtwagenhändler, die einsteigen möchten.</p>
+          <h3>Zugänge</h3>
           <div class="pricing-price">
-            <span class="amount">279 € / Monat</span>
+            <span class="amount">169 € / Monat</span>
           </div>
-          <p class="pricing-videos">12 Autos + 3 Videos</p>
-          <p class="pricing-videos-hint">Ideal für den Einstieg</p>
           <ul class="pricing-features">
-            <li>Professionelle KI-Fotos für 12 Fahrzeuge</li>
-            <li>3 KI-Werbevideos für Ihre teuersten/wichtigsten Fahrzeuge</li>
-            <li>Formate für Social Media, Website &amp; Fahrzeugportale</li>
-            <li>1 Feedback-Runde pro Auftrag</li>
+            <li>Alle Fahrzeuge, die neu auf deinen Hof kommen</li>
+            <li>Du schickst die Fotos, wenn das Auto da ist</li>
+            <li>2 KI-Werbevideos im Monat für deine stärksten Fahrzeuge</li>
           </ul>
-          <a href="#kontakt" class="btn btn-block">Paket anfragen</a>
+          <a href="#kontakt" class="btn btn-block">Anfragen</a>
         </div>
 
         <div class="pricing-card pricing-card--highlighted">
-          <span class="mono-label pricing-badge">BELIEBTESTE WAHL</span>
+          <span class="mono-label pricing-badge">Für die meisten Höfe passend</span>
           <p class="mono-label">9F_P2</p>
-          <h3>Wachstum</h3>
-          <p class="pricing-desc">Für Autohäuser mit wachsendem oder mittlerem Bestand.</p>
+          <h3>Zugänge + Ads</h3>
           <div class="pricing-price">
-            <span class="amount">549 € / Monat</span>
+            <span class="amount">299 € / Monat</span>
           </div>
-          <p class="pricing-videos">24 Autos + 8 Videos</p>
-          <p class="pricing-videos-hint">Unser meistgebuchtes Paket</p>
           <ul class="pricing-features">
-            <li>Professionelle KI-Fotos für 24 Fahrzeuge</li>
-            <li>8 KI-Werbevideos für Ihre Topfahrzeuge</li>
-            <li>Formate für Social Media, Website &amp; Fahrzeugportale</li>
-            <li>2 Feedback-Runden pro Auftrag</li>
-            <li>Laufende Betreuung</li>
+            <li>Alle Fahrzeuge, die neu auf deinen Hof kommen</li>
+            <li>4 KI-Werbevideos im Monat</li>
+            <li>Empfehlung, wo die Videos laufen sollten</li>
           </ul>
-          <a href="#kontakt" class="btn btn-primary btn-block">Paket anfragen</a>
+          <a href="#kontakt" class="btn btn-primary btn-block">Anfragen</a>
         </div>
 
         <div class="pricing-card">
           <p class="mono-label">9F_P3</p>
-          <h3>Premium</h3>
-          <p class="pricing-desc">Für größere Autohäuser und Vertragshändler mit hohem Bestand.</p>
+          <h3>Individuell</h3>
           <div class="pricing-price">
-            <span class="amount">ab 999 € / Monat</span>
+            <span class="amount">ab 699 € / Monat</span>
           </div>
-          <p class="pricing-videos">Gesamter Bestand + 10+ Videos</p>
-          <p class="pricing-videos-hint">Individuell erweiterbar</p>
           <ul class="pricing-features">
-            <li>Kompletter Bestand priorisiert bearbeitet — schnellere Lieferzeit</li>
-            <li>10+ KI-Werbevideos, freie Fahrzeugauswahl</li>
-            <li>Platzierungs-Empfehlung (Meta/TikTok/Instagram) inklusive</li>
-            <li>Persönlicher Ansprechpartner</li>
+            <li>Mehrere Standorte oder großer Bestand</li>
+            <li>10+ Werbevideos im Monat</li>
+            <li>Feste Liefertage in der Woche</li>
           </ul>
-          <a href="#kontakt" class="btn btn-block">Kontakt aufnehmen</a>
+          <a href="#kontakt" class="btn btn-block">Anfragen</a>
         </div>
       </div>
 
-      <p class="mono-label" style="margin-top:64px; color:var(--color-ink-faint);">EINZELPREISE</p>
-      <div class="pricing-grid" style="margin-top:24px;">
-        <div class="pricing-card">
-          <p class="mono-label">9F_E1</p>
-          <h3>Einzelpreise</h3>
-          <p class="pricing-desc">Lieber flexibel statt im Abo? Stellen Sie sich Ihr individuelles Paket zusammen.</p>
-
-          <div class="qty-row" style="margin-top:24px;">
-            <div>
-              <p class="pricing-videos-hint" style="margin-top:0;">Fotoveredelung</p>
-              <div class="pricing-price" style="margin-top:4px;">
-                <span class="amount">19 €</span>
-                <span class="note">/ Fahrzeug</span>
-              </div>
-            </div>
-            <div class="qty-stepper">
-              <button type="button" class="qty-btn" data-qty-action="decrease" data-qty-target="foto" aria-label="Weniger Fotoveredelung">−</button>
-              <span class="qty-value" id="qty-foto">0</span>
-              <button type="button" class="qty-btn" data-qty-action="increase" data-qty-target="foto" aria-label="Mehr Fotoveredelung">+</button>
-            </div>
-          </div>
-
-          <div class="qty-row" style="margin-top:20px;">
-            <div>
-              <p class="pricing-videos-hint" style="margin-top:0;">KI-Werbevideo</p>
-              <div class="pricing-price" style="margin-top:4px;">
-                <span class="amount">49 €</span>
-                <span class="note">/ Fahrzeug</span>
-              </div>
-            </div>
-            <div class="qty-stepper">
-              <button type="button" class="qty-btn" data-qty-action="decrease" data-qty-target="video" aria-label="Weniger KI-Werbevideo">−</button>
-              <span class="qty-value" id="qty-video">0</span>
-              <button type="button" class="qty-btn" data-qty-action="increase" data-qty-target="video" aria-label="Mehr KI-Werbevideo">+</button>
-            </div>
-          </div>
-
-          <div style="margin-top:24px; padding-top:24px; border-top:1px solid var(--color-border);">
-            <p class="pricing-videos-hint" style="margin-top:0;">Ihr individueller Preis</p>
-            <div class="pricing-price" style="margin-top:4px;">
-              <span class="amount" id="einzelpreise-total">0 €</span>
-            </div>
-          </div>
-
-          <ul class="pricing-features">
-            <li>Frei kombinierbar (z. B. 3 Autos + 2 Videos)</li>
-            <li>Mindestabnahme 5 Fahrzeuge pro Bestellung</li>
-          </ul>
-
-          <a href="#kontakt" class="btn btn-block" id="einzelpreise-anfragen">Einzeln anfragen</a>
-        </div>
-      </div>
-
-      <p class="mono-label" style="margin-top:48px; color:var(--color-ink-faint);">TREUE-RABATT</p>
-      <p class="note" style="margin-top:12px; max-width:560px; font-size:0.9rem; color:var(--color-ink-soft);">
-        Neu bei uns? Nach Ihrer ersten Bestellung erhalten Sie automatisch
-        einen 10 %-Rabattcode für Ihre nächste Bestellung — einlösbar
-        innerhalb von 60 Tagen. Gilt für Pakete und Einzelpreise
-        gleichermaßen.
+      <p class="note price-calm-line">
+        169 € im Monat sind rund 5,50 € am Tag. Ein Fotograf, der einmal auf
+        den Hof kommt, kostet in der Regel mehr – und er kommt einmal.
       </p>
 
-      <p class="mono-label" style="margin-top:40px; color:var(--color-ink-faint);">Kundenstimmen und Referenzprojekte folgen in Kürze.</p>
+      <div class="price-single-block">
+        <p class="note">
+          Lieber einzeln? Einzelne Fahrzeugfotos 19 €, einzelnes Werbevideo
+          49 €, ab 5 Fahrzeugen. Ohne Monatliches.
+        </p>
+      </div>
+
+      <p class="note price-terms-line">
+        Monatlich kündbar. Keine Mindestlaufzeit, keine Einrichtungsgebühr.
+        Wer drei Monate im Voraus zahlt, bekommt 10 % Nachlass.
+      </p>
     </div>
   </section>
 
-  <!-- 6. Über uns -->
+  <!-- 11. Über uns -->
   <section class="section--alt" id="ueber-uns" aria-labelledby="ueberuns-heading">
     <div class="container section">
-      <p class="mono-label eyebrow">9F_007 / ÜBER UNS</p>
+      <p class="mono-label eyebrow">9F_011 / ÜBER UNS</p>
       <h2 id="ueberuns-heading" style="margin-top:24px; max-width:640px;">Hinter 9fills</h2>
 
       <div class="about-text" style="margin-top:48px;">
         <p>
           9fills veredelt Fahrzeugfotos mit künstlicher Intelligenz und
-          produziert KI-Werbevideos für einzelne Fahrzeuge aus dem
-          Bestand von Autohäusern und Fahrzeughändlern. Wir kennen die
-          Formate, die auf Instagram, TikTok, der eigenen Website und
-          Fahrzeugportalen wie mobile.de oder AutoScout24 funktionieren.
+          produziert KI-Werbevideos für einzelne Fahrzeuge aus dem Bestand
+          von Autohäusern und Fahrzeughändlern. Wir kennen die Formate, die
+          auf Instagram, TikTok, der eigenen Website und Fahrzeugportalen
+          wie mobile.de oder AutoScout24 funktionieren.
         </p>
         <p>
           Statt ein teures Fotostudio oder ein eigenes Kamera-Team zu
-          buchen, bekommen Sie bei uns beides aus einer Hand —
-          produziert mit künstlicher Intelligenz aus Fotos oder kurzen
-          Handyclips, die Sie uns schicken.
+          buchen, bekommst du bei uns beides aus einer Hand — produziert
+          mit künstlicher Intelligenz aus Fotos oder kurzen Handyclips, die
+          du uns schickst.
         </p>
         <p>
           Kein Marketing-Sprech, keine Blackbox-Prozesse — sondern ein
-          klarer Ablauf, an dem Sie jeden Schritt nachvollziehen können.
+          klarer Ablauf, an dem du jeden Schritt nachvollziehen kannst.
         </p>
 
         <a href="#kontakt" class="btn">Kontakt aufnehmen</a>
@@ -514,17 +558,17 @@
   <!-- FAQ -->
   <section class="section--alt" id="faq" aria-labelledby="faq-heading">
     <div class="container section">
-      <p class="mono-label eyebrow">9F_008 / FAQ</p>
+      <p class="mono-label eyebrow">9F_012 / FAQ</p>
       <h2 id="faq-heading" style="margin-top:24px; max-width:640px;">Häufige Fragen.</h2>
 
       <div class="faq-list">
         <details class="faq-item">
           <summary>Ist das Beispielfoto wirklich kostenlos?</summary>
-          <p>Ja — das erste bearbeitete Beispielfoto ist kostenlos und unverbindlich. Sie entscheiden danach in Ruhe, ob Sie eines unserer Pakete buchen möchten.</p>
+          <p>Ja — das erste bearbeitete Beispielfoto ist kostenlos und unverbindlich. Du entscheidest danach in Ruhe, ob du eines unserer Angebote buchst.</p>
         </details>
         <details class="faq-item">
           <summary>Wem gehören die Rechte an den fertigen Fotos und Videos?</summary>
-          <p>Sie erhalten das volle Nutzungsrecht für Ihre eigene Werbung — zeitlich und räumlich unbeschränkt.</p>
+          <p>Du bekommst das volle Nutzungsrecht für deine eigene Werbung — zeitlich und räumlich unbeschränkt.</p>
         </details>
         <details class="faq-item">
           <summary>Muss ich kennzeichnen, dass Foto oder Video KI-generiert sind?</summary>
@@ -532,32 +576,32 @@
         </details>
         <details class="faq-item">
           <summary>Wie lange dauert die Produktion?</summary>
-          <p>In der Regel innerhalb von 3 Tagen. Bei hohem Auftragsvolumen klären wir das im Erstgespräch und nennen Ihnen ein verbindliches Datum.</p>
+          <p>In der Regel innerhalb von 3 Tagen. Bei hohem Auftragsvolumen klären wir das im Erstgespräch und nennen dir ein verbindliches Datum.</p>
         </details>
         <details class="faq-item">
           <summary>Wie viele Korrekturschleifen sind enthalten?</summary>
           <p>Standardmäßig ist eine Feedback-Runde pro Auftrag enthalten, weitere sind auf Anfrage möglich.</p>
         </details>
         <details class="faq-item">
-          <summary>Welche Fotos oder Videos brauchen Sie von uns?</summary>
-          <p>Normale Fotos oder kurze Handyclips vom Fahrzeug reichen aus — kein professionelles Shooting nötig. Details besprechen wir im Erstgespräch.</p>
+          <summary>Welche Fotos oder Videos werden gebraucht?</summary>
+          <p>Normale Fotos oder kurze Handyclips vom Fahrzeug reichen aus — kein professionelles Shooting nötig. Details besprechen wir vorher kurz.</p>
         </details>
         <details class="faq-item">
           <summary>Kann ich vorab Beispiele sehen?</summary>
-          <p>Ja — Beispiele für Fotoveredelung und Werbevideos finden Sie direkt auf dieser Seite: <a href="#loesung">hier ansehen</a>.</p>
+          <p>Ja — Beispiele für Fotoveredelung und Werbevideos findest du direkt auf dieser Seite: <a href="#loesung">hier ansehen</a>.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- 7. Kontakt -->
+  <!-- 12. Kontakt -->
   <section class="section" id="kontakt" aria-labelledby="kontakt-heading">
     <div class="container">
-      <p class="mono-label eyebrow">9F_009 / KONTAKT</p>
-      <h2 id="kontakt-heading" style="margin-top:24px; max-width:640px;">Lassen Sie uns über Ihre ersten Fahrzeugfotos und -videos sprechen.</h2>
+      <p class="mono-label eyebrow">9F_013 / KONTAKT</p>
+      <h2 id="kontakt-heading" style="margin-top:24px; max-width:640px;">Lass uns über deine ersten Fahrzeugfotos sprechen.</h2>
       <p class="lede" style="margin-top:16px; max-width:560px;">
-        Schreiben Sie uns kurz, um welche Fahrzeuge es geht — wir melden
-        uns in der Regel innerhalb von 1–2 Werktagen zurück.
+        Schreib uns kurz, um welche Fahrzeuge es geht. Wir melden uns in
+        der Regel innerhalb von 1–2 Werktagen zurück.
       </p>
 
       <div class="contact-layout">
@@ -575,13 +619,14 @@
               <input id="email" name="email" type="email" required autocomplete="email">
             </div>
             <div class="form-field">
-              <label for="paket">Gewünschtes Paket</label>
+              <label for="paket">Woran hast du Interesse?</label>
               <select id="paket" name="paket" required>
                 <option value="" disabled selected>Bitte auswählen</option>
-                <option value="start">Start</option>
-                <option value="wachstum">Wachstum</option>
-                <option value="premium">Premium</option>
-                <option value="einzelpreise">Einzelpreise (nach Bedarf)</option>
+                <option value="bestand">Einmalige Bestandsaufnahme</option>
+                <option value="zugaenge">Zugänge (169 €/Monat)</option>
+                <option value="zugaenge-ads">Zugänge + Ads (299 €/Monat)</option>
+                <option value="individuell">Individuell</option>
+                <option value="einzeln">Einzeln (ohne Monatliches)</option>
                 <option value="unsicher">Noch unsicher</option>
               </select>
             </div>
@@ -594,8 +639,8 @@
 
           <div id="contact-success" class="form-success" role="status" tabindex="-1" hidden>
             <p class="mono-label">9F_200 / GESENDET</p>
-            <p class="title">Danke für Ihre Nachricht!</p>
-            <p class="note">Wir melden uns in der Regel innerhalb von 1–2 Werktagen bei Ihnen.</p>
+            <p class="title">Danke für deine Nachricht!</p>
+            <p class="note">Wir melden uns in der Regel innerhalb von 1–2 Werktagen bei dir.</p>
           </div>
         </div>
 
@@ -623,7 +668,7 @@
       <a href="index.html" class="logo" aria-label="9fills — zur Startseite">
         <img src="assets/9fills-logo-combined-inter.svg" alt="9fills" width="140" height="35">
       </a>
-      <p>KI-Fotoveredelung und KI-Werbevideos für Fahrzeuge aus Ihrem Bestand — für Social Media, Website und Fahrzeugportale.</p>
+      <p>KI-Fotoveredelung und KI-Werbevideos für Fahrzeuge aus deinem Bestand — für Social Media, Website und Fahrzeugportale.</p>
     </div>
 
     <div class="footer-col">
