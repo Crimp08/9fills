@@ -103,27 +103,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Standzeit-Rechner: berechnet gebundenes Kapital und Standzeitkosten live
-  // und speist die Live-Zeile im Preis-Block "Einmal: dein Bestand" mit.
-  var calcBestand = document.getElementById("calc-bestand");
-  var calcStandzeit = document.getElementById("calc-standzeit");
-  var calcWert = document.getElementById("calc-wert");
-  var bestandSummeCount = document.getElementById("bestand-summe-count");
-  var bestandSummeTotal = document.getElementById("bestand-summe-total");
-
   function formatZahl(zahl) {
     return Math.round(zahl).toLocaleString("de-DE");
   }
 
-  function bestandsaufnahmePreis(bestand) {
-    var stueckpreis = bestand < 20 ? 19 : 15;
-    return bestand * stueckpreis;
+  function pluralize(n, singular, plural) {
+    return n + " " + (n === 1 ? singular : plural);
   }
 
-  function updateBestandsaufnahme(bestand) {
-    if (bestandSummeCount) bestandSummeCount.textContent = formatZahl(bestand);
-    if (bestandSummeTotal) bestandSummeTotal.textContent = formatZahl(bestandsaufnahmePreis(bestand)) + " €";
+  // Preisregel Bestandsaufnahme: Fahrzeug 1–19 kosten 19 €, ab dem 20. nur noch 15 €
+  // (gestaffelt, nicht rückwirkend — 20 Fahrzeuge sind teurer als 19).
+  function bestandsaufnahmePreis(bestand) {
+    var ersteStufe = Math.min(bestand, 19);
+    var zweiteStufe = Math.max(bestand - 19, 0);
+    return ersteStufe * 19 + zweiteStufe * 15;
   }
+
+  var bestandBeispielCount = document.getElementById("bestand-beispiel-count");
+  var bestandBeispielTotal = document.getElementById("bestand-beispiel-total");
+
+  function updateBestandsaufnahme(bestand) {
+    if (bestandBeispielCount) bestandBeispielCount.textContent = formatZahl(bestand);
+    if (bestandBeispielTotal) bestandBeispielTotal.textContent = formatZahl(bestandsaufnahmePreis(bestand)) + " €";
+  }
+
+  // Standzeit-Rechner: berechnet gebundenes Kapital und Standzeitkosten live
+  // und speist die Beispiel-Zeile in Schritt 1 (Bestandsaufnahme) mit.
+  var calcBestand = document.getElementById("calc-bestand");
+  var calcStandzeit = document.getElementById("calc-standzeit");
+  var calcWert = document.getElementById("calc-wert");
 
   if (calcBestand && calcStandzeit && calcWert) {
     var calcBestandValue = document.getElementById("calc-bestand-value");
@@ -131,7 +139,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var calcWertValue = document.getElementById("calc-wert-value");
     var calcKapitalOut = document.getElementById("calc-kapital");
     var calcTageskostenOut = document.getElementById("calc-tageskosten");
-    var calcMonatstageOut = document.getElementById("calc-monatstage");
 
     function updateRechner() {
       var bestand = Number(calcBestand.value);
@@ -145,11 +152,9 @@ document.addEventListener("DOMContentLoaded", function () {
       var kostenProFahrzeugProTag = (wert * 0.15) / 365;
       var kostenProTagGesamt = kostenProFahrzeugProTag * bestand;
       var gebundenesKapital = wert * bestand;
-      var tageFuerEinenMonat = 169 / kostenProTagGesamt;
 
       if (calcKapitalOut) calcKapitalOut.textContent = formatZahl(gebundenesKapital) + " €";
       if (calcTageskostenOut) calcTageskostenOut.textContent = formatZahl(kostenProTagGesamt) + " €";
-      if (calcMonatstageOut) calcMonatstageOut.textContent = formatZahl(tageFuerEinenMonat) + " Tagen";
 
       updateBestandsaufnahme(bestand);
     }
@@ -160,9 +165,178 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateRechner();
   } else {
-    // Rechner nicht auf der Seite: Preis-Block trotzdem mit Startwert 25 anzeigen.
+    // Rechner nicht auf der Seite: Beispiel-Zeile trotzdem mit Startwert 25 anzeigen.
     updateBestandsaufnahme(25);
   }
+
+  // Bank-Karten: einmaliger Glanz-Sweep beim ersten Einblenden + Tilt bei Hover
+  var bankCards = Array.prototype.slice.call(document.querySelectorAll(".bank-card"));
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hoverCapable = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  if (bankCards.length && "IntersectionObserver" in window) {
+    var shineObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var card = entry.target;
+        var index = bankCards.indexOf(card);
+        var delay = reduceMotion ? 0 : index * 150;
+        var shine = card.querySelector(".bank-card-shine");
+        if (shine) {
+          setTimeout(function () {
+            shine.style.transition = "transform 0.9s ease, opacity 0.9s ease";
+            shine.style.opacity = "1";
+            shine.style.transform = "translateX(120%)";
+          }, delay);
+        }
+        observer.unobserve(card);
+      });
+    }, { threshold: 0.4 });
+
+    bankCards.forEach(function (card) {
+      shineObserver.observe(card);
+    });
+  }
+
+  if (hoverCapable && !reduceMotion) {
+    bankCards.forEach(function (card) {
+      card.addEventListener("mousemove", function (event) {
+        var rect = card.getBoundingClientRect();
+        var x = (event.clientX - rect.left) / rect.width;
+        var y = (event.clientY - rect.top) / rect.height;
+        var rotateY = (x - 0.5) * 16;
+        var rotateX = (0.5 - y) * 16;
+        card.style.transform =
+          "perspective(800px) rotateX(" + rotateX.toFixed(2) + "deg) rotateY(" + rotateY.toFixed(2) + "deg)";
+      });
+      card.addEventListener("mouseleave", function () {
+        card.style.transform = "";
+      });
+    });
+  }
+
+  // Karten-Stammdaten für Block 2 (feste Karten) und Block 3 (eigene Karte)
+  var PREIS_NEUZUGANG = 19;
+  var PREIS_VIDEO = 49;
+  var KARTEN = {
+    "5": { name: "9F-5", neuzugaenge: 5, videos: 0, preis: 79 },
+    "10": { name: "9F-10", neuzugaenge: 10, videos: 3, preis: 249 },
+    "20": { name: "9F-20", neuzugaenge: 20, videos: 6, preis: 449 }
+  };
+
+  // Schritt 3: eigene Karte zusammenstellen (Stepper, Live-Vorschau, Spar-Hinweis)
+  var qtyNeuzugaengeEl = document.getElementById("qty-neuzugaenge");
+  var qtyVideosEl = document.getElementById("qty-videos");
+  var customTotalEl = document.getElementById("custom-card-total");
+  var customContentEl = document.getElementById("custom-card-content");
+  var customTipEl = document.getElementById("custom-card-tip");
+  var customCtaEl = document.getElementById("custom-card-cta");
+
+  if (qtyNeuzugaengeEl && qtyVideosEl) {
+    var customConfig = { neuzugaenge: 6, videos: 1 };
+    var CUSTOM_MIN = { neuzugaenge: 1, videos: 0 };
+    var CUSTOM_MAX = { neuzugaenge: 50, videos: 20 };
+
+    function updateCustomCard() {
+      var n = customConfig.neuzugaenge;
+      var v = customConfig.videos;
+      qtyNeuzugaengeEl.textContent = String(n);
+      qtyVideosEl.textContent = String(v);
+
+      var total = n * PREIS_NEUZUGANG + v * PREIS_VIDEO;
+      if (customTotalEl) customTotalEl.textContent = formatZahl(total) + " €";
+
+      var contentParts = [pluralize(n, "Neuzugang", "Neuzugänge")];
+      if (v > 0) contentParts.push(pluralize(v, "Video", "Videos"));
+      if (customContentEl) customContentEl.textContent = contentParts.join(" + ");
+
+      var beste = null;
+      Object.keys(KARTEN).forEach(function (key) {
+        var karte = KARTEN[key];
+        if (karte.neuzugaenge >= n && karte.videos >= v && karte.preis < total) {
+          if (!beste || karte.preis < beste.preis) beste = { key: key, karte: karte };
+        }
+      });
+
+      if (customTipEl) {
+        if (beste) {
+          var exakt = beste.karte.neuzugaenge === n && beste.karte.videos === v;
+          var satzTeil = exakt ? "hat genau das" : "enthält sogar mehr";
+          customTipEl.innerHTML =
+            "Tipp: " + beste.karte.name + " " + satzTeil + " – für " +
+            formatZahl(beste.karte.preis) + " € statt " + formatZahl(total) + " €. " +
+            '<a href="#karte-' + beste.key + '">Zu ' + beste.karte.name + '</a>';
+          customTipEl.hidden = false;
+        } else {
+          customTipEl.hidden = true;
+          customTipEl.innerHTML = "";
+        }
+      }
+
+      if (customCtaEl) {
+        var neuzugaengeTeile = [pluralize(n, "Neuzugang", "Neuzugänge")];
+        if (v > 0) neuzugaengeTeile.push(pluralize(v, "KI-Werbevideo", "KI-Werbevideos"));
+        customCtaEl.dataset.preisMessage =
+          "Ich möchte mit einer Bestandsaufnahme starten und danach eine eigene 9fills Flex Card nutzen: " +
+          neuzugaengeTeile.join(" + ") + " (" + formatZahl(total) + " €).";
+      }
+    }
+
+    document.querySelectorAll("#preise .qty-stepper [data-qty-action]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var target = button.getAttribute("data-qty-target");
+        if (!(target in customConfig)) return;
+        var delta = button.getAttribute("data-qty-action") === "increase" ? 1 : -1;
+        var next = customConfig[target] + delta;
+        customConfig[target] = Math.max(CUSTOM_MIN[target], Math.min(CUSTOM_MAX[target], next));
+        updateCustomCard();
+      });
+    });
+
+    updateCustomCard();
+  }
+
+  // Preis-CTAs: Kontaktformular vorbefüllen, ohne manuell Getipptes zu überschreiben
+  var paketSelect = document.getElementById("paket");
+  var messageField = document.getElementById("message");
+
+  if (messageField) {
+    messageField.addEventListener("input", function () {
+      messageField.dataset.autofilled = "false";
+    });
+  }
+
+  function pflegeNachricht(text) {
+    if (!messageField || !text) return;
+    var leer = messageField.value.trim() === "";
+    var automatisch = messageField.dataset.autofilled === "true";
+    if (leer || automatisch) {
+      messageField.value = text;
+      messageField.dataset.autofilled = "true";
+    }
+  }
+
+  function kartenNachricht(karte) {
+    var teile = [pluralize(karte.neuzugaenge, "Neuzugang", "Neuzugänge")];
+    if (karte.videos > 0) teile.push(pluralize(karte.videos, "KI-Werbevideo", "KI-Werbevideos"));
+    return "Ich möchte mit einer Bestandsaufnahme starten und danach " + karte.name +
+      " nutzen (" + teile.join(" + ") + ", " + formatZahl(karte.preis) + " €).";
+  }
+
+  document.querySelectorAll("[data-preis-cta]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var art = button.getAttribute("data-preis-cta");
+      if (paketSelect) paketSelect.value = art;
+
+      if (art === "bestandsaufnahme") {
+        pflegeNachricht("Ich interessiere mich für eine Bestandsaufnahme. Auf unserem Hof stehen aktuell ca. __ Fahrzeuge.");
+      } else if (art === "eigene-karte") {
+        pflegeNachricht(button.dataset.preisMessage);
+      } else if (KARTEN[art.replace("karte-", "")]) {
+        pflegeNachricht(kartenNachricht(KARTEN[art.replace("karte-", "")]));
+      }
+    });
+  });
 
   // Sendet das Formular per AJAX an Web3Forms (funktioniert unabhängig vom Hosting).
   var form = document.getElementById("contact-form");

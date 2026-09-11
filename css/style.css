@@ -137,10 +137,12 @@ select {
 }
 
 .section {
-  padding: 80px 0;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 .section--tight {
-  padding: 64px 0;
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 .section--alt {
   background: var(--color-white);
@@ -385,7 +387,8 @@ h3,
   background: var(--color-white);
 }
 .footer-inner {
-  padding: 64px 0;
+  padding-top: 64px;
+  padding-bottom: 64px;
   display: grid;
   gap: 48px;
   grid-template-columns: 1fr;
@@ -826,19 +829,6 @@ h3,
   letter-spacing: 0.1em;
   color: var(--color-ink);
 }
-.compare-slider-tag {
-  position: absolute;
-  top: 12px;
-  color: var(--color-white);
-  z-index: 1;
-  pointer-events: none;
-}
-.compare-slider-tag--before {
-  left: 12px;
-}
-.compare-slider-tag--after {
-  right: 12px;
-}
 .compare-slider-range {
   display: block;
   width: 100%;
@@ -847,48 +837,11 @@ h3,
 }
 
 /* ---------- Pricing ---------- */
-.pricing-grid {
-  margin-top: 48px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-@media (min-width: 900px) {
-  .pricing-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.pricing-card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--color-border);
-  background: var(--color-white);
-  padding: 32px;
-}
-.pricing-card--highlighted {
-  border: 2px solid var(--color-brand);
-}
-.pricing-badge {
-  align-self: flex-start;
-  margin-bottom: 16px;
-  background: var(--color-brand);
-  color: var(--color-white);
-  padding: 4px 10px;
-  font-size: 0.7rem;
-}
-.pricing-card .mono-label {
-  color: var(--color-ink-faint);
-}
-.pricing-card h3 {
-  margin-top: 12px;
-}
-.pricing-card .pricing-desc {
-  margin-top: 8px;
+.pricing-desc {
   font-size: 0.9rem;
   color: var(--color-ink-soft);
 }
 .pricing-price {
-  margin-top: 24px;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -902,20 +855,12 @@ h3,
 .pricing-price .note {
   color: var(--color-ink-faint);
 }
-.pricing-videos {
-  margin-top: 8px;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--color-brand);
-}
 .pricing-videos-hint {
   margin-top: 4px;
   font-size: 0.85rem;
   color: var(--color-ink-faint);
 }
 .pricing-features {
-  margin-top: 32px;
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -930,9 +875,6 @@ h3,
   content: "+";
   color: var(--color-brand);
   font-weight: 600;
-}
-.pricing-card .btn {
-  margin-top: 32px;
 }
 .qty-row {
   display: flex;
@@ -1521,21 +1463,9 @@ h3,
 .phone-mockup .compare-slider-media {
   aspect-ratio: 4 / 5;
 }
-.phone-mockup .compare-slider-tag {
-  max-width: calc(100% - 24px);
-  line-height: 1.35;
-  white-space: normal;
-  background: rgba(0, 0, 0, 0.55);
-  padding: 5px 8px;
-  font-size: 0.68rem;
-}
-.phone-mockup .compare-slider-tag--before {
-  top: 12px;
-}
-.phone-mockup .compare-slider-tag--after {
-  top: auto;
-  right: 12px;
-  bottom: 12px;
+.compare-slider-caption {
+  margin-top: 14px;
+  color: var(--color-ink-faint);
 }
 .phone-mockup-feed-line {
   height: 8px;
@@ -1722,8 +1652,8 @@ h3,
 }
 .delle-marker {
   position: absolute;
-  top: 46%;
-  left: 58%;
+  top: 60%;
+  left: 34%;
   width: 22px;
   height: 22px;
   border: 2px solid var(--color-brand);
@@ -1743,39 +1673,302 @@ h3,
   transform: rotate(-18deg);
 }
 
-/* ---------- Preise: Bestandsaufnahme + laufende Hinweise ---------- */
-.price-block {
-  margin-top: 48px;
-  padding: 32px;
-  max-width: 640px;
+/* ---------- Preise: Schritt 1 — Bestandsaufnahme ---------- */
+.price-step1 {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding: 40px;
   border: 1px solid var(--color-border);
   background: var(--color-white);
 }
-.price-live-line {
+@media (min-width: 800px) {
+  .price-step1 {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .price-step1-aside {
+    border-left: 1px solid var(--color-border);
+    padding-left: 48px;
+  }
+}
+.price-example-line {
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid var(--color-border);
   font-size: 0.95rem;
   color: var(--color-ink-soft);
 }
-.price-live-line strong {
+.price-example-line strong {
   color: var(--color-ink);
 }
-.price-calm-line {
-  margin-top: 32px;
-  max-width: 620px;
+
+/* ---------- Preise: Schritt 2 — Karten für Neuzugänge ---------- */
+.price-step2 {
+  margin-top: 80px;
+  padding-top: 48px;
+  border-top: 1px solid var(--color-border);
+}
+.card-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+.card-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.card-column--highlighted {
+  padding-top: 36px;
+  position: relative;
+}
+.card-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: var(--color-brand);
+  color: var(--color-white);
+  padding: 4px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.card-details {
+  margin-top: 24px;
+  width: 100%;
+  max-width: 340px;
+}
+.card-regular-price {
+  font-size: 0.85rem;
+  color: var(--color-ink-faint);
+}
+.card-regular-price s {
+  color: var(--color-ink-faint);
+}
+.card-price {
+  margin-top: 4px;
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.card-savings {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  background: var(--color-brand-light);
+  color: var(--color-brand-dark);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.card-details .btn {
+  margin-top: 20px;
+}
+.card-rules {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+}
+.card-rules ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   font-size: 0.9rem;
   color: var(--color-ink-soft);
 }
-.price-single-block {
+@media (min-width: 800px) {
+  .card-rules ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 32px;
+  }
+}
+.card-rules li {
+  display: flex;
+  gap: 10px;
+}
+.card-rules li::before {
+  content: "+";
+  color: var(--color-brand);
+  font-weight: 600;
+}
+
+/* ---------- Bank-Karten ---------- */
+.bank-card {
+  position: relative;
+  aspect-ratio: 85.6 / 54;
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 14px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  color: var(--color-brand-dark);
+  box-shadow: 0 10px 24px rgba(17, 17, 17, 0.14), 0 2px 6px rgba(17, 17, 17, 0.08);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+}
+.bank-card--featured {
+  max-width: 360px;
+  box-shadow: 0 18px 40px rgba(17, 17, 17, 0.22), 0 4px 10px rgba(17, 17, 17, 0.12);
+}
+.bank-card--pearl {
+  background: linear-gradient(135deg, #ffffff 0%, var(--color-brand-light) 100%);
+  border: 1px solid var(--color-border);
+}
+.bank-card--brand {
+  background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-brand-dark) 100%);
+  color: var(--color-white);
+}
+.bank-card--night {
+  background: linear-gradient(135deg, #0f2566 0%, #081640 100%);
+  color: var(--color-white);
+}
+.bank-card--neutral {
+  background: linear-gradient(135deg, #eef0f3 0%, #cfd4db 100%);
+  color: var(--color-ink);
+  border: 1px solid var(--color-border);
+}
+.bank-card-shine {
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.55) 48%, transparent 62%);
+  transform: translateX(-120%);
+  opacity: 0;
+  pointer-events: none;
+}
+.bank-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  z-index: 1;
+}
+.bank-card-logo {
+  height: 20px;
+  width: auto;
+}
+.bank-card--brand .bank-card-logo,
+.bank-card--night .bank-card-logo {
+  filter: brightness(0) invert(1);
+}
+.bank-card-name {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.bank-card-chip-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  z-index: 1;
+}
+.bank-card-chip {
+  width: 34px;
+  height: 24px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #e8e2c8, #b9ad7f);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+.bank-card-contactless {
+  width: 18px;
+  height: 18px;
+}
+.bank-card-content {
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35), 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+.bank-card--brand .bank-card-content,
+.bank-card--night .bank-card-content {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25), 0 -1px 1px rgba(0, 0, 0, 0.35);
+}
+.bank-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 1;
+}
+.bank-card-bottom > div:last-child {
+  text-align: right;
+}
+.bank-card-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.bank-card-value {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+@media (hover: hover) and (pointer: fine) {
+  .bank-card {
+    cursor: default;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bank-card {
+    transition: none;
+  }
+}
+
+/* ---------- Preise: Schritt 3 — Eigene Karte ---------- */
+.price-step3 {
+  margin-top: 80px;
+  padding-top: 48px;
+  border-top: 1px solid var(--color-border);
+}
+.custom-card-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+@media (min-width: 800px) {
+  .custom-card-grid {
+    grid-template-columns: 1fr 360px;
+    align-items: center;
+    gap: 48px;
+  }
+}
+.custom-card-total {
   margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
 }
-.price-single-block .note {
+.custom-card-tip {
+  margin-top: 12px;
   font-size: 0.85rem;
-  color: var(--color-ink-faint);
+  color: var(--color-ink-soft);
 }
-.price-terms-line {
-  margin-top: 16px;
-  font-size: 0.85rem;
-  color: var(--color-ink-faint);
+.custom-card-tip a {
+  color: var(--color-brand);
+  border-bottom: 1px solid currentColor;
 }

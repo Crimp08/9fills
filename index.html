@@ -32,7 +32,7 @@
 
 <link rel="icon" type="image/svg+xml" href="assets/9fills-favicon.svg">
 <!-- TODO: PNG-Fallback fürs Favicon ergänzen (nicht alle Clients unterstützen SVG-Favicons) -->
-<link rel="stylesheet" href="css/style.css?v=8">
+<link rel="stylesheet" href="css/style.css?v=10">
 
 <!-- Strukturierte Daten für Suchmaschinen (schema.org) -->
 <script type="application/ld+json">
@@ -92,7 +92,7 @@
   <section class="hero">
     <div class="container">
       <p class="mono-label eyebrow">9F_001 / FÜR GEBRAUCHTWAGENHÄNDLER</p>
-      <h1>Deine Autos sind gut. Deine Fotos nicht.</h1>
+      <h1>Deine Autos sind top. Sind das deine Fotos auch?</h1>
       <p class="lede">
         Wir tauschen den Hintergrund deiner Inseratsfotos gegen saubere
         Studio- und Außenaufnahmen. Am Fahrzeug selbst ändern wir nichts.
@@ -182,11 +182,10 @@
             <div class="compare-slider-handle" aria-hidden="true">
               <span class="compare-slider-handle-arrows">◂ ▸</span>
             </div>
-            <p class="compare-slider-tag compare-slider-tag--before mono-label">So steht dein Fahrzeug heute im Inserat</p>
-            <p class="compare-slider-tag compare-slider-tag--after mono-label">So könnte es morgen stehen</p>
           </div>
           <input type="range" class="compare-slider-range" min="0" max="100" value="50" aria-label="Regler bewegen, um zwischen dem Inserat heute und morgen zu wechseln">
         </div>
+        <p class="compare-slider-caption mono-label">So könnte dein Inserat morgen aussehen</p>
         <div class="phone-mockup-feed-line" aria-hidden="true"></div>
         <div class="phone-mockup-feed-line phone-mockup-feed-line--short" aria-hidden="true"></div>
       </div>
@@ -199,8 +198,9 @@
       <p class="mono-label eyebrow">9F_004 / VOM FOTO ZUM WERBEVIDEO</p>
       <h2 id="werbevideos-heading" style="margin-top:24px; max-width:640px;">Aus Fotos wird ein Werbevideo.</h2>
       <p class="lede" style="margin-top:16px; max-width:560px;">
-        Für dein stärkstes Fahrzeug reicht ein kurzer Handyclip, um daraus
-        ein fertiges Werbevideo zu machen.
+        Für dein Werbevideo reichen ein paar Fotos aus verschiedenen
+        Winkeln. Wir erstellen dir daraus ein Video – passend für alle
+        deine sozialen Medien.
       </p>
 
       <div class="placeholder-grid placeholder-grid--videos" style="margin-top:32px;">
@@ -325,10 +325,6 @@
           <p class="calc-output-line">Jeder Tag Standzeit kostet dich rund
             <span class="calc-output-value" id="calc-tageskosten">0 €</span>.
           </p>
-          <p class="calc-output-line">169 € entsprechen etwa
-            <span class="calc-output-value" id="calc-monatstage">0 Tagen</span>
-            Standzeit.
-          </p>
         </div>
       </div>
 
@@ -345,8 +341,8 @@
       <p class="mono-label eyebrow">9F_007 / VERTRAUEN</p>
       <h2 id="delle-heading" style="margin-top:24px; max-width:640px;">Wir retuschieren nichts am Auto. Auch nicht die Delle.</h2>
       <p class="lede" style="margin-top:16px; max-width:620px;">
-        Sieh dir die Beifahrertür an. Die Delle ist im bearbeiteten Bild
-        noch da – genau wie am echten Fahrzeug. Wir tauschen ausschließlich
+        Sieh dir die Stoßstange an. Die Delle ist im bearbeiteten Bild noch
+        da – genau wie am echten Fahrzeug. Wir tauschen ausschließlich
         Hintergrund und Licht. Kratzer, Dellen, Felgenschäden und
         Nachlackierungen bleiben sichtbar. So steht kein Käufer bei dir auf
         dem Hof und ist enttäuscht.
@@ -354,15 +350,14 @@
 
       <div class="delle-grid">
         <div class="delle-slot">
-          <img class="delle-img" src="assets/delle-vorher.jpg" alt="Vorher: Fahrzeug mit sichtbarer Delle an der Beifahrertür, unbearbeitet" loading="lazy" onerror="this.classList.add('is-missing')">
-          <!-- Marker zeigt grob auf die Delle — Position bei echten Fotos ggf. anpassen -->
+          <img class="delle-img" src="assets/delle-vorher.png" alt="Vorher: Fahrzeug mit sichtbarer Delle in der Stoßstange, auf dem Gebrauchtwagenhof" loading="lazy" onerror="this.classList.add('is-missing')">
           <span class="delle-marker" aria-hidden="true"></span>
-          <p class="mono-label delle-caption">Vorher — assets/delle-vorher.jpg</p>
+          <p class="mono-label delle-caption">Vorher — assets/delle-vorher.png</p>
         </div>
         <div class="delle-slot">
-          <img class="delle-img" src="assets/delle-nachher.jpg" alt="Nachher: gleiches Fahrzeug, Studio-Hintergrund, Delle weiterhin sichtbar" loading="lazy" onerror="this.classList.add('is-missing')">
+          <img class="delle-img" src="assets/delle-nachher.png" alt="Nachher: gleiches Fahrzeug, Studio-Hintergrund, Delle in der Stoßstange weiterhin sichtbar" loading="lazy" onerror="this.classList.add('is-missing')">
           <span class="delle-marker" aria-hidden="true"></span>
-          <p class="mono-label delle-caption">Nachher — assets/delle-nachher.jpg</p>
+          <p class="mono-label delle-caption">Nachher — assets/delle-nachher.png</p>
         </div>
       </div>
     </div>
@@ -372,7 +367,7 @@
   <section class="section" id="ablauf" aria-labelledby="ablauf-heading">
     <div class="container section">
       <p class="mono-label eyebrow">9F_008 / ABLAUF</p>
-      <h2 id="ablauf-heading" style="margin-top:24px; max-width:640px;">So kommen deine Autos zu neuen Fotos.</h2>
+      <h2 id="ablauf-heading" style="margin-top:24px; max-width:640px;">Vom ersten Kontakt bis zum laufenden Neuzugang.</h2>
 
       <div class="process-list">
         <div class="process-step">
@@ -381,8 +376,8 @@
             <span class="process-step-line" aria-hidden="true"></span>
           </div>
           <div class="process-step-body">
-            <h3>Fotos schicken</h3>
-            <p>Du schickst mir Fotos deiner Fahrzeuge. Handyqualität reicht.</p>
+            <h3>Kontaktaufnahme</h3>
+            <p>Du schreibst uns kurz, worum es geht — über das Kontaktformular, per E-Mail oder WhatsApp.</p>
           </div>
         </div>
         <div class="process-step">
@@ -391,17 +386,27 @@
             <span class="process-step-line" aria-hidden="true"></span>
           </div>
           <div class="process-step-body">
-            <h3>Bilder zurückbekommen</h3>
-            <p>Du bekommst die fertigen Bilder zurück, in der Regel innerhalb von 48 Stunden.</p>
+            <h3>Bestandsaufnahme</h3>
+            <p>Du schickst uns die aktuellen Fotos deines Bestands. Wir setzen jedes Fahrzeug vor deinen Wunsch-Hintergrund.</p>
           </div>
         </div>
         <div class="process-step">
           <div class="process-step-marker">
             <span class="process-step-number">03</span>
+            <span class="process-step-line" aria-hidden="true"></span>
           </div>
           <div class="process-step-body">
-            <h3>Ins Inserat laden</h3>
-            <p>Du lädst sie ins Inserat. Fertig.</p>
+            <h3>Studio-Look</h3>
+            <p>Alle Außenfotos bekommen einen einheitlichen Studio-Look, dazu ein kostenloses Werbevideo von deinem stärksten Auto.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-marker">
+            <span class="process-step-number">04</span>
+          </div>
+          <div class="process-step-body">
+            <h3>Neuzugänge</h3>
+            <p>Neue Autos schickst du per WhatsApp. Wir buchen sie von deiner 9fills Flex Card ab und liefern innerhalb von 48 Stunden.</p>
           </div>
         </div>
       </div>
@@ -435,93 +440,252 @@
   <section class="section" id="preise" aria-labelledby="preise-heading">
     <div class="container">
       <p class="mono-label eyebrow">9F_010 / PREISE</p>
-      <h2 id="preise-heading" style="margin-top:24px; max-width:640px;">Was das kostet.</h2>
+      <h2 id="preise-heading" style="margin-top:24px; max-width:640px;">Einmal deinen kompletten Bestand — danach zahlst du nur noch für Neuzugänge.</h2>
+      <p class="lede" style="margin-top:16px; max-width:620px;">
+        Kein Abo, keine Kündigung. Du startest mit einer Bestandsaufnahme
+        auf deinem Hof und nutzt danach eine 9fills Flex Card für alle
+        Autos, die neu dazukommen.
+      </p>
 
-      <div class="price-block price-block--onetime">
-        <p class="mono-label">9F_P0</p>
-        <h3>Einmal: dein Bestand.</h3>
-        <p class="pricing-desc" style="max-width:520px;">
-          Jedes Fahrzeug, das heute auf deinem Hof steht, bekommt einmal
-          saubere Bilder. Das ist die größte Arbeit und passiert nur ein
-          einziges Mal.
-        </p>
-        <div class="pricing-price" style="margin-top:24px;">
-          <span class="amount">19 € pro Fahrzeug</span>
+      <!-- Schritt 1: Bestandsaufnahme -->
+      <div class="price-step1">
+        <div class="price-step1-main">
+          <p class="mono-label">Schritt 1</p>
+          <h3 style="margin-top:12px;">Der Start: deine Bestandsaufnahme</h3>
+          <p class="pricing-desc" style="margin-top:12px; max-width:460px;">
+            Du schickst uns die aktuellen Fotos deines gesamten Bestands.
+            Wir setzen jedes Fahrzeug vor einen einheitlichen
+            Studio-Look — fertig für deine Inserate.
+          </p>
+          <p class="pricing-desc" style="margin-top:12px; max-width:460px;">
+            Keine neuen Fotos nötig — die Bilder, die du sowieso schon auf
+            mobile.de, AutoScout24 oder deinen anderen Plattformen hast,
+            reichen aus.
+          </p>
+          <ul class="pricing-features" style="margin-top:28px;">
+            <li>Inklusive: ein KI-Werbevideo von deinem stärksten Auto — kostenlos</li>
+            <li>Neuzugänge schickst du danach genauso einfach per WhatsApp nach</li>
+            <li>Dein Look gehört dir: Den Hintergrund, den wir für deinen Hof gestalten, bekommt kein anderer Händler.</li>
+            <li>Deine Fotos in der Regel innerhalb von 3 Tagen, nachdem wir deine Bilder erhalten haben</li>
+          </ul>
         </div>
-        <p class="pricing-videos-hint">ab 20 Fahrzeugen 15 €</p>
-        <p class="price-live-line">Bei <strong id="bestand-summe-count">25</strong> Fahrzeugen: <strong id="bestand-summe-total">375 €</strong> einmalig.</p>
+        <div class="price-step1-aside">
+          <div class="pricing-price">
+            <span class="amount">19 € pro Fahrzeug</span>
+          </div>
+          <p class="pricing-videos-hint">ab dem 20. Fahrzeug nur noch 15 €</p>
+          <p class="price-example-line">Beispiel: <strong id="bestand-beispiel-count">25</strong> Fahrzeuge = <strong id="bestand-beispiel-total">451 €</strong></p>
+          <a href="#kontakt" class="btn btn-primary btn-block" style="margin-top:24px;" data-preis-cta="bestandsaufnahme">Bestandsaufnahme anfragen</a>
+        </div>
       </div>
 
-      <div style="margin-top:64px;">
-        <p class="mono-label" style="color:var(--color-ink-faint);">DANACH: NUR NOCH DIE NEUZUGÄNGE</p>
-        <h3 style="margin-top:16px; max-width:560px;">Danach: nur noch die Neuzugänge.</h3>
+      <!-- Schritt 2: 9fills Flex Card für Neuzugänge -->
+      <div class="price-step2">
+        <p class="mono-label">Schritt 2</p>
+        <h3 style="margin-top:12px; max-width:560px;">Danach: deine 9fills Flex Card für Neuzugänge</h3>
         <p class="pricing-desc" style="margin-top:12px; max-width:560px;">
-          Verkaufte Autos brauchen keine Bilder mehr. Deswegen zahlst du ab
-          dem zweiten Monat nur noch für das, was neu auf den Hof kommt.
+          Neues Auto auf dem Hof? Fotos per WhatsApp schicken — wir buchen
+          es von deiner Flex Card ab.
         </p>
+
+        <div class="card-grid">
+          <!-- 9F-5 -->
+          <div class="card-column">
+            <div class="bank-card bank-card--pearl" id="karte-5" data-card="5" aria-label="9F-5: 5 Neuzugänge, 12 Monate gültig">
+              <div class="bank-card-shine" aria-hidden="true"></div>
+              <div class="bank-card-top">
+                <img class="bank-card-logo" src="assets/9fills-logo-combined-inter.svg" alt="" aria-hidden="true">
+                <span class="bank-card-name">9F-5</span>
+              </div>
+              <div class="bank-card-chip-row">
+                <span class="bank-card-chip" aria-hidden="true"></span>
+                <svg class="bank-card-contactless" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M4 12a8 8 0 0 1 8-8" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                  <path d="M7 12a5 5 0 0 1 5-5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                  <path d="M10 12a2 2 0 0 1 2-2" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p class="bank-card-content">5 Neuzugänge</p>
+              <div class="bank-card-bottom">
+                <div>
+                  <span class="bank-card-label">Karteninhaber</span>
+                  <span class="bank-card-value">DEIN AUTOHAUS</span>
+                </div>
+                <div>
+                  <span class="bank-card-label">Gültig</span>
+                  <span class="bank-card-value">12 Monate</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-details">
+              <p class="card-regular-price"><span>Einzeln</span> <s>95 €</s><span class="sr-only"> regulär</span></p>
+              <p class="card-price">79 €</p>
+              <p class="card-savings">Du sparst 16 €</p>
+              <a href="#kontakt" class="btn btn-block" data-preis-cta="karte-5">Mit 9F-5 starten</a>
+            </div>
+          </div>
+
+          <!-- 9F-10 (Hauptkarte) -->
+          <div class="card-column card-column--highlighted">
+            <span class="card-badge">Für die meisten Höfe passend</span>
+            <div class="bank-card bank-card--brand bank-card--featured" id="karte-10" data-card="10" aria-label="9F-10: 10 Neuzugänge und 3 KI-Werbevideos, 12 Monate gültig">
+              <div class="bank-card-shine" aria-hidden="true"></div>
+              <div class="bank-card-top">
+                <img class="bank-card-logo" src="assets/9fills-logo-combined-inter.svg" alt="" aria-hidden="true">
+                <span class="bank-card-name">9F-10</span>
+              </div>
+              <div class="bank-card-chip-row">
+                <span class="bank-card-chip" aria-hidden="true"></span>
+                <svg class="bank-card-contactless" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M4 12a8 8 0 0 1 8-8" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                  <path d="M7 12a5 5 0 0 1 5-5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                  <path d="M10 12a2 2 0 0 1 2-2" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p class="bank-card-content">10 Neuzugänge + 3 Videos</p>
+              <div class="bank-card-bottom">
+                <div>
+                  <span class="bank-card-label">Karteninhaber</span>
+                  <span class="bank-card-value">DEIN AUTOHAUS</span>
+                </div>
+                <div>
+                  <span class="bank-card-label">Gültig</span>
+                  <span class="bank-card-value">12 Monate</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-details">
+              <p class="card-regular-price"><span>Einzeln</span> <s>337 €</s><span class="sr-only"> regulär</span></p>
+              <p class="card-price">249 €</p>
+              <p class="card-savings">Du sparst 88 €</p>
+              <a href="#kontakt" class="btn btn-primary btn-block" data-preis-cta="karte-10">Mit 9F-10 starten</a>
+            </div>
+          </div>
+
+          <!-- 9F-20 -->
+          <div class="card-column">
+            <div class="bank-card bank-card--night" id="karte-20" data-card="20" aria-label="9F-20: 20 Neuzugänge und 6 KI-Werbevideos, 12 Monate gültig">
+              <div class="bank-card-shine" aria-hidden="true"></div>
+              <div class="bank-card-top">
+                <img class="bank-card-logo" src="assets/9fills-logo-combined-inter.svg" alt="" aria-hidden="true">
+                <span class="bank-card-name">9F-20</span>
+              </div>
+              <div class="bank-card-chip-row">
+                <span class="bank-card-chip" aria-hidden="true"></span>
+                <svg class="bank-card-contactless" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M4 12a8 8 0 0 1 8-8" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                  <path d="M7 12a5 5 0 0 1 5-5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                  <path d="M10 12a2 2 0 0 1 2-2" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p class="bank-card-content">20 Neuzugänge + 6 Videos</p>
+              <div class="bank-card-bottom">
+                <div>
+                  <span class="bank-card-label">Karteninhaber</span>
+                  <span class="bank-card-value">DEIN AUTOHAUS</span>
+                </div>
+                <div>
+                  <span class="bank-card-label">Gültig</span>
+                  <span class="bank-card-value">12 Monate</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-details">
+              <p class="card-regular-price"><span>Einzeln</span> <s>674 €</s><span class="sr-only"> regulär</span></p>
+              <p class="card-price">449 €</p>
+              <p class="card-savings">Du sparst 225 €</p>
+              <a href="#kontakt" class="btn btn-block" data-preis-cta="karte-20">Mit 9F-20 starten</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-rules">
+          <ul>
+            <li>12 Monate gültig. Kein Abo — die 9fills Flex Card verlängert sich nicht automatisch.</li>
+            <li>Neue Flex Card vor Ablauf gekauft? Dein Restguthaben kommt mit.</li>
+            <li>Die Videos sind frei einsetzbar — auch für Autos, die schon länger stehen.</li>
+            <li>Ein Neuzugang: bis zu 6 Außenfotos eines Fahrzeugs im Studio-Look. Fotos innerhalb von 48 Stunden, Videos in der Regel innerhalb von 3 Tagen.</li>
+            <li>Nach jeder Lieferung bekommst du deinen Kartenstand per WhatsApp.</li>
+            <li>Die 9fills Flex Card gibt es im Anschluss an deine Bestandsaufnahme — so hat dein ganzer Hof denselben Look.</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="pricing-grid" style="margin-top:32px;">
-        <div class="pricing-card">
-          <p class="mono-label">9F_P1</p>
-          <h3>Zugänge</h3>
-          <div class="pricing-price">
-            <span class="amount">169 € / Monat</span>
-          </div>
-          <ul class="pricing-features">
-            <li>Alle Fahrzeuge, die neu auf deinen Hof kommen</li>
-            <li>Du schickst die Fotos, wenn das Auto da ist</li>
-            <li>2 KI-Werbevideos im Monat für deine stärksten Fahrzeuge</li>
-          </ul>
-          <a href="#kontakt" class="btn btn-block">Anfragen</a>
-        </div>
-
-        <div class="pricing-card pricing-card--highlighted">
-          <span class="mono-label pricing-badge">Für die meisten Höfe passend</span>
-          <p class="mono-label">9F_P2</p>
-          <h3>Zugänge + Ads</h3>
-          <div class="pricing-price">
-            <span class="amount">299 € / Monat</span>
-          </div>
-          <ul class="pricing-features">
-            <li>Alle Fahrzeuge, die neu auf deinen Hof kommen</li>
-            <li>4 KI-Werbevideos im Monat</li>
-            <li>Empfehlung, wo die Videos laufen sollten</li>
-          </ul>
-          <a href="#kontakt" class="btn btn-primary btn-block">Anfragen</a>
-        </div>
-
-        <div class="pricing-card">
-          <p class="mono-label">9F_P3</p>
-          <h3>Individuell</h3>
-          <div class="pricing-price">
-            <span class="amount">ab 699 € / Monat</span>
-          </div>
-          <ul class="pricing-features">
-            <li>Mehrere Standorte oder großer Bestand</li>
-            <li>10+ Werbevideos im Monat</li>
-            <li>Feste Liefertage in der Woche</li>
-          </ul>
-          <a href="#kontakt" class="btn btn-block">Anfragen</a>
-        </div>
-      </div>
-
-      <p class="note price-calm-line">
-        169 € im Monat sind rund 5,50 € am Tag. Ein Fotograf, der einmal auf
-        den Hof kommt, kostet in der Regel mehr – und er kommt einmal.
-      </p>
-
-      <div class="price-single-block">
-        <p class="note">
-          Lieber einzeln? Einzelne Fahrzeugfotos 19 €, einzelnes Werbevideo
-          49 €, ab 5 Fahrzeugen. Ohne Monatliches.
+      <!-- Schritt 3: Eigene 9fills Flex Card -->
+      <div class="price-step3">
+        <h3 style="max-width:560px;">Oder: erstelle deine eigene 9fills Flex Card — perfekt auf dich zugeschnitten</h3>
+        <p class="pricing-desc" style="margin-top:12px; max-width:560px;">
+          Genau so viele Neuzugänge und Videos, wie du brauchst — zum
+          regulären Preis: 19 € pro Fahrzeug, 49 € pro Video. Es gelten
+          dieselben Regeln wie oben.
         </p>
-      </div>
 
-      <p class="note price-terms-line">
-        Monatlich kündbar. Keine Mindestlaufzeit, keine Einrichtungsgebühr.
-        Wer drei Monate im Voraus zahlt, bekommt 10 % Nachlass.
-      </p>
+        <div class="custom-card-grid">
+          <div class="custom-card-controls">
+            <div class="qty-row">
+              <div>
+                <p class="pricing-videos-hint" style="margin-top:0;">Neuzugänge</p>
+                <p class="note" style="margin-top:4px; font-size:0.85rem; color:var(--color-ink-faint);">19 € pro Fahrzeug</p>
+              </div>
+              <div class="qty-stepper">
+                <button type="button" class="qty-btn" data-qty-action="decrease" data-qty-target="neuzugaenge" aria-label="Weniger Neuzugänge">−</button>
+                <span class="qty-value" id="qty-neuzugaenge">6</span>
+                <button type="button" class="qty-btn" data-qty-action="increase" data-qty-target="neuzugaenge" aria-label="Mehr Neuzugänge">+</button>
+              </div>
+            </div>
+            <div class="qty-row" style="margin-top:20px;">
+              <div>
+                <p class="pricing-videos-hint" style="margin-top:0;">KI-Werbevideos</p>
+                <p class="note" style="margin-top:4px; font-size:0.85rem; color:var(--color-ink-faint);">49 € pro Video</p>
+              </div>
+              <div class="qty-stepper">
+                <button type="button" class="qty-btn" data-qty-action="decrease" data-qty-target="videos" aria-label="Weniger KI-Werbevideos">−</button>
+                <span class="qty-value" id="qty-videos">1</span>
+                <button type="button" class="qty-btn" data-qty-action="increase" data-qty-target="videos" aria-label="Mehr KI-Werbevideos">+</button>
+              </div>
+            </div>
+
+            <div class="custom-card-total">
+              <p class="pricing-videos-hint" style="margin-top:0;">Dein Preis</p>
+              <div class="pricing-price" style="margin-top:4px;">
+                <span class="amount" id="custom-card-total">163 €</span>
+              </div>
+              <p class="custom-card-tip" id="custom-card-tip" hidden></p>
+            </div>
+
+            <a href="#kontakt" class="btn btn-primary btn-block" id="custom-card-cta" data-preis-cta="eigene-karte" style="margin-top:24px;">Eigene Flex Card anfragen</a>
+          </div>
+
+          <div class="custom-card-preview">
+            <div class="bank-card bank-card--neutral" aria-hidden="true">
+              <div class="bank-card-shine" aria-hidden="true"></div>
+              <div class="bank-card-top">
+                <img class="bank-card-logo" src="assets/9fills-logo-combined-inter.svg" alt="" aria-hidden="true">
+                <span class="bank-card-name">Flex Card</span>
+              </div>
+              <div class="bank-card-chip-row">
+                <span class="bank-card-chip" aria-hidden="true"></span>
+                <svg class="bank-card-contactless" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M4 12a8 8 0 0 1 8-8" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                  <path d="M7 12a5 5 0 0 1 5-5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                  <path d="M10 12a2 2 0 0 1 2-2" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p class="bank-card-content" id="custom-card-content">6 Neuzugänge + 1 Video</p>
+              <div class="bank-card-bottom">
+                <div>
+                  <span class="bank-card-label">Karteninhaber</span>
+                  <span class="bank-card-value">DEIN AUTOHAUS</span>
+                </div>
+                <div>
+                  <span class="bank-card-label">Gültig</span>
+                  <span class="bank-card-value">12 Monate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -564,19 +728,15 @@
       <div class="faq-list">
         <details class="faq-item">
           <summary>Ist das Beispielfoto wirklich kostenlos?</summary>
-          <p>Ja — das erste bearbeitete Beispielfoto ist kostenlos und unverbindlich. Du entscheidest danach in Ruhe, ob du eines unserer Angebote buchst.</p>
+          <p>Ja — das erste bearbeitete Beispielfoto ist kostenlos und unverbindlich. Du entscheidest danach in Ruhe, ob du mit einer Bestandsaufnahme starten möchtest.</p>
         </details>
         <details class="faq-item">
           <summary>Wem gehören die Rechte an den fertigen Fotos und Videos?</summary>
           <p>Du bekommst das volle Nutzungsrecht für deine eigene Werbung — zeitlich und räumlich unbeschränkt.</p>
         </details>
         <details class="faq-item">
-          <summary>Muss ich kennzeichnen, dass Foto oder Video KI-generiert sind?</summary>
-          <p>Je nach Plattform kann eine Kennzeichnungspflicht gelten (z. B. nach Meta- oder TikTok-Richtlinien). Wir weisen im Erstgespräch darauf hin — das ersetzt aber keine Rechtsberatung.</p>
-        </details>
-        <details class="faq-item">
           <summary>Wie lange dauert die Produktion?</summary>
-          <p>In der Regel innerhalb von 3 Tagen. Bei hohem Auftragsvolumen klären wir das im Erstgespräch und nennen dir ein verbindliches Datum.</p>
+          <p>Nach der Bestandsaufnahme bekommst du deine Fotos in der Regel innerhalb von 3 Tagen. Neuzugänge von deiner 9fills Flex Card liefern wir innerhalb von 48 Stunden, Werbevideos in der Regel innerhalb von 3 Tagen.</p>
         </details>
         <details class="faq-item">
           <summary>Wie viele Korrekturschleifen sind enthalten?</summary>
@@ -584,7 +744,19 @@
         </details>
         <details class="faq-item">
           <summary>Welche Fotos oder Videos werden gebraucht?</summary>
-          <p>Normale Fotos oder kurze Handyclips vom Fahrzeug reichen aus — kein professionelles Shooting nötig. Details besprechen wir vorher kurz.</p>
+          <p>Für die Bestandsaufnahme schickst du uns die aktuellen Fotos deines Bestands — wir setzen sie vor deinen Wunsch-Hintergrund. Für Neuzugänge reichen danach genauso einfache Handyfotos.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Muss ich extra Fotos für dich machen?</summary>
+          <p>Nein. Die Fotos, die du sowieso schon auf mobile.de, AutoScout24 oder deinen anderen Plattformen hast, reichen aus.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Ist die 9fills Flex Card ein Abo?</summary>
+          <p>Nein. Du kaufst die Flex Card einmal, sie gilt 12 Monate und verlängert sich nicht automatisch. Es gibt nichts zu kündigen.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Was passiert mit Guthaben, das ich nicht aufbrauche?</summary>
+          <p>Wenn du vor Ablauf eine neue Flex Card kaufst, nimmst du dein Restguthaben einfach mit.</p>
         </details>
         <details class="faq-item">
           <summary>Kann ich vorab Beispiele sehen?</summary>
@@ -619,14 +791,14 @@
               <input id="email" name="email" type="email" required autocomplete="email">
             </div>
             <div class="form-field">
-              <label for="paket">Woran hast du Interesse?</label>
+              <label for="paket">Womit möchtest du starten?</label>
               <select id="paket" name="paket" required>
                 <option value="" disabled selected>Bitte auswählen</option>
-                <option value="bestand">Einmalige Bestandsaufnahme</option>
-                <option value="zugaenge">Zugänge (169 €/Monat)</option>
-                <option value="zugaenge-ads">Zugänge + Ads (299 €/Monat)</option>
-                <option value="individuell">Individuell</option>
-                <option value="einzeln">Einzeln (ohne Monatliches)</option>
+                <option value="bestandsaufnahme">Bestandsaufnahme</option>
+                <option value="karte-5">Bestandsaufnahme + 9F-5</option>
+                <option value="karte-10">Bestandsaufnahme + 9F-10</option>
+                <option value="karte-20">Bestandsaufnahme + 9F-20</option>
+                <option value="eigene-karte">Bestandsaufnahme + eigene Flex Card</option>
                 <option value="unsicher">Noch unsicher</option>
               </select>
             </div>
@@ -714,6 +886,6 @@
   <video id="video-lightbox-video" controls playsinline></video>
 </div>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=3"></script>
 </body>
 </html>
